@@ -40,13 +40,13 @@ function App() {
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${
-      darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'
+      darkMode ? 'bg-theme-bg-dark text-theme-primary-dark' : 'bg-theme-bg text-theme-primary'
     }`}>
       {/* Header */}
       <header className={`sticky top-0 z-50 border-b-2 transition-colors duration-300 ${
         darkMode 
-          ? 'bg-gray-800 border-theme-accent-dark shadow-lg shadow-theme-accent-dark/20' 
-          : 'bg-white border-theme-accent shadow-lg shadow-theme-accent/10'
+          ? 'bg-theme-header-dark border-theme-accent-dark shadow-lg shadow-theme-accent-dark/20' 
+          : 'bg-theme-header border-theme-accent shadow-lg shadow-theme-accent/10'
       }`}>
         <div className="w-full mx-auto px-2 sm:px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between">
@@ -65,8 +65,8 @@ function App() {
                 onClick={() => window.open('https://foreflight.com', '_blank')}
                 className={`p-1.5 sm:p-2 rounded-lg transition-colors duration-200 ${
                   darkMode 
-                    ? 'bg-gray-700 hover:bg-gray-600 text-theme-accent-dark' 
-                    : 'bg-gray-100 hover:bg-gray-200 text-theme-accent'
+                    ? 'bg-theme-card-dark hover:bg-theme-accent-dark/20 text-theme-accent-dark' 
+                    : 'bg-theme-card hover:bg-theme-accent/10 text-theme-accent'
                 }`}
                 title="Open ForeFlight Web"
               >
@@ -77,8 +77,8 @@ function App() {
                 onClick={() => window.open('https://pilot.garmin.com', '_blank')}
                 className={`p-1.5 sm:p-2 rounded-lg transition-colors duration-200 ${
                   darkMode 
-                    ? 'bg-gray-700 hover:bg-gray-600 text-theme-accent-dark' 
-                    : 'bg-gray-100 hover:bg-gray-200 text-theme-accent'
+                    ? 'bg-theme-card-dark hover:bg-theme-accent-dark/20 text-theme-accent-dark' 
+                    : 'bg-theme-card hover:bg-theme-accent/10 text-theme-accent'
                 }`}
                 title="Open Garmin Pilot"
               >
@@ -89,8 +89,8 @@ function App() {
                 onClick={toggleDarkMode}
                 className={`p-1.5 sm:p-2 rounded-lg transition-colors duration-200 ${
                   darkMode 
-                    ? 'bg-gray-700 hover:bg-gray-600 text-yellow-400' 
-                    : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                    ? 'bg-theme-card-dark hover:bg-theme-accent-dark/20 text-yellow-400' 
+                    : 'bg-theme-card hover:bg-theme-accent/10 text-theme-secondary'
                 }`}
               >
                 <span className="text-base sm:text-xl">{darkMode ? '☀️' : '🌙'}</span>
@@ -103,8 +103,8 @@ function App() {
       {/* Navigation Tabs */}
       <nav className={`sticky top-20 z-40 border-b transition-colors duration-300 ${
         darkMode 
-          ? 'bg-gray-800 border-gray-700' 
-          : 'bg-white border-gray-200'
+          ? 'bg-theme-header-dark border-theme-accent-dark/30' 
+          : 'bg-theme-header border-theme-accent/30'
       }`}>
         <div className="w-full mx-auto px-2 sm:px-4">
           <div className="flex justify-around sm:justify-start sm:space-x-1">
@@ -118,11 +118,11 @@ function App() {
                   className={`flex flex-col items-center justify-center gap-1 px-2 py-2 text-xs font-medium border-b-2 transition-all duration-200 flex-1 sm:flex-initial sm:min-w-[90px] ${
                     activeTab === tab.id
                       ? darkMode
-                        ? 'border-theme-accent-dark text-theme-accent-dark bg-gray-700'
-                        : 'border-theme-accent text-theme-accent bg-theme-header'
+                        ? 'border-theme-accent-dark text-theme-accent-dark bg-theme-card-dark'
+                        : 'border-theme-accent text-theme-accent bg-theme-card'
                       : darkMode
-                        ? 'border-transparent text-gray-300 hover:text-white hover:bg-gray-700'
-                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                        ? 'border-transparent text-theme-secondary-dark hover:text-theme-primary-dark hover:bg-theme-card-dark/50'
+                        : 'border-transparent text-theme-secondary hover:text-theme-primary hover:bg-theme-card/50'
                   }`}
                 >
                   <Icon className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
@@ -150,7 +150,7 @@ function App() {
 
       {/* Footer */}
       <footer className={`mt-12 border-t transition-colors duration-300 ${
-        darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'
+        darkMode ? 'bg-theme-footer-dark border-theme-accent-dark/30' : 'bg-theme-footer border-theme-accent/30'
       }`}>
         <div className="w-full mx-auto px-4 py-6">
           <div className="text-center text-sm opacity-60">

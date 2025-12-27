@@ -31,15 +31,15 @@ const CloudBaseCalculator: React.FC<CloudBaseCalculatorProps> = ({ darkMode }) =
   };
 
   return (
-    <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg shadow-lg border ${
-      darkMode ? 'border-gray-700' : 'border-gray-200'
+    <div className={`${darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'} rounded-lg shadow-lg border ${
+      darkMode ? 'border-theme-accent-dark/30' : 'border-theme-accent/30'
     } p-6`}>
       <div className="flex items-center space-x-3 mb-6">
         <Cloud className={`w-6 h-6 ${darkMode ? 'text-theme-accent-dark' : 'text-theme-accent'}`} />
         <h2 className="text-xl font-bold">Cloud Base Calculator</h2>
       </div>
       
-      <p className={`text-sm mb-6 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+      <p className={`text-sm mb-6 ${darkMode ? 'text-theme-secondary-dark' : 'text-theme-secondary'}`}>
         Calculate the approximate height of cloud base using temperature and dew point.
       </p>
 
@@ -53,8 +53,8 @@ const CloudBaseCalculator: React.FC<CloudBaseCalculatorProps> = ({ darkMode }) =
               onChange={(e) => setTemperature(e.target.value)}
               className={`w-full p-3 border rounded-lg transition-colors ${
                 darkMode 
-                  ? 'bg-gray-700 border-gray-600 text-white focus:border-theme-accent-dark' 
-                  : 'bg-white border-gray-300 text-gray-900 focus:border-theme-accent'
+                  ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark focus:border-theme-accent-dark' 
+                  : 'bg-theme-card border-theme-accent/30 text-theme-primary focus:border-theme-accent'
               } focus:outline-none focus:ring-2 focus:ring-theme-accent/20`}
               placeholder="Enter temperature"
             />
@@ -68,8 +68,8 @@ const CloudBaseCalculator: React.FC<CloudBaseCalculatorProps> = ({ darkMode }) =
               onChange={(e) => setDewPoint(e.target.value)}
               className={`w-full p-3 border rounded-lg transition-colors ${
                 darkMode 
-                  ? 'bg-gray-700 border-gray-600 text-white focus:border-theme-accent-dark' 
-                  : 'bg-white border-gray-300 text-gray-900 focus:border-theme-accent'
+                  ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark focus:border-theme-accent-dark' 
+                  : 'bg-theme-card border-theme-accent/30 text-theme-primary focus:border-theme-accent'
               } focus:outline-none focus:ring-2 focus:ring-theme-accent/20`}
               placeholder="Enter dew point"
             />
@@ -78,7 +78,7 @@ const CloudBaseCalculator: React.FC<CloudBaseCalculatorProps> = ({ darkMode }) =
           <div className="flex space-x-3">
             <button
               onClick={calculateCloudBase}
-              className="flex-1 py-3 bg-theme-accent hover:bg-theme-accent text-white rounded-lg font-medium transition-colors duration-200"
+              className="flex-1 py-3 bg-theme-accent dark:bg-theme-accent-dark hover:bg-theme-accent/80 dark:hover:bg-theme-accent-dark/80 text-white rounded-lg font-medium transition-colors duration-200"
             >
               Calculate
             </button>
@@ -86,8 +86,8 @@ const CloudBaseCalculator: React.FC<CloudBaseCalculatorProps> = ({ darkMode }) =
               onClick={clearCalculation}
               className={`px-4 py-3 rounded-lg font-medium transition-colors duration-200 ${
                 darkMode 
-                  ? 'bg-gray-700 hover:bg-gray-600 text-gray-300' 
-                  : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                  ? 'bg-theme-card-dark hover:bg-theme-accent-dark/20 text-theme-secondary-dark' 
+                  : 'bg-theme-card hover:bg-theme-accent/10 text-theme-secondary'
               }`}
             >
               Clear
@@ -95,7 +95,7 @@ const CloudBaseCalculator: React.FC<CloudBaseCalculatorProps> = ({ darkMode }) =
           </div>
         </div>
 
-        <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-theme-header'}`}>
+        <div className={`p-6 rounded-lg ${darkMode ? 'bg-theme-header-dark' : 'bg-theme-header'}`}>
           <h3 className="text-lg font-semibold mb-4">Result</h3>
           {result !== null ? (
             <div className="text-center">
@@ -118,7 +118,7 @@ const CloudBaseCalculator: React.FC<CloudBaseCalculatorProps> = ({ darkMode }) =
 
           <div className="mt-6">
             <h4 className="font-medium mb-2">Formula Used:</h4>
-            <div className={`text-sm p-3 rounded ${darkMode ? 'bg-gray-800' : 'bg-white'} font-mono`}>
+            <div className={`text-sm p-3 rounded ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'} font-mono`}>
               Cloud Base = (Temp - Dew Point) / 2.5 × 1000 ft
             </div>
           </div>

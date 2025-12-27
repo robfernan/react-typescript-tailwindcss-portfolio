@@ -76,11 +76,11 @@ const FlightLogs: React.FC<FlightLogsProps> = ({ darkMode }) => {
   };
 
   return (
-    <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg shadow-lg border ${
-      darkMode ? 'border-gray-700' : 'border-gray-200'
+    <div className={`${darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'} rounded-lg shadow-lg border ${
+      darkMode ? 'border-theme-accent-dark/30' : 'border-theme-accent/30'
     }`}>
-      <div className={`${darkMode ? 'bg-gray-700' : 'bg-theme-header'} border-b ${
-        darkMode ? 'border-gray-600' : 'border-gray-200'
+      <div className={`${darkMode ? 'bg-theme-header-dark' : 'bg-theme-header'} border-b ${
+        darkMode ? 'border-theme-accent-dark/30' : 'border-theme-accent/30'
       } p-6`}>
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
@@ -105,7 +105,7 @@ const FlightLogs: React.FC<FlightLogsProps> = ({ darkMode }) => {
           <button
             onClick={() => setIsAdding(!isAdding)}
             className={`px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center space-x-2 ${
-              darkMode ? 'bg-theme-accent hover:bg-theme-header0 text-white' : 'bg-theme-accent hover:bg-blue-700 text-white'
+              darkMode ? 'bg-theme-accent-dark hover:bg-theme-accent-dark/80 text-white' : 'bg-theme-accent hover:bg-theme-accent/80 text-white'
             }`}
           >
             <Plus className="w-4 h-4" />
@@ -114,7 +114,7 @@ const FlightLogs: React.FC<FlightLogsProps> = ({ darkMode }) => {
         </div>
 
         {isAdding && (
-          <div className={`mb-6 p-4 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
+          <div className={`mb-6 p-4 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'}`}>
             <h4 className="font-medium mb-4">Add New Flight Log</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -127,7 +127,7 @@ const FlightLogs: React.FC<FlightLogsProps> = ({ darkMode }) => {
                   value={newLog.date}
                   onChange={(e) => setNewLog({...newLog, date: e.target.value})}
                   className={`w-full p-3 border rounded-md ${
-                    darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-gray-900'
+                    darkMode ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                   }`}
                 />
               </div>
@@ -143,7 +143,7 @@ const FlightLogs: React.FC<FlightLogsProps> = ({ darkMode }) => {
                   value={newLog.aircraftNNumber}
                   onChange={(e) => setNewLog({...newLog, aircraftNNumber: e.target.value})}
                   className={`w-full p-3 border rounded-md ${
-                    darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-gray-900'
+                    darkMode ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                   }`}
                 />
               </div>
@@ -160,7 +160,7 @@ const FlightLogs: React.FC<FlightLogsProps> = ({ darkMode }) => {
                   value={newLog.flightTime}
                   onChange={(e) => setNewLog({...newLog, flightTime: e.target.value})}
                   className={`w-full p-3 border rounded-md ${
-                    darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-gray-900'
+                    darkMode ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                   }`}
                 />
               </div>
@@ -176,7 +176,7 @@ const FlightLogs: React.FC<FlightLogsProps> = ({ darkMode }) => {
                   onChange={(e) => setNewLog({...newLog, notes: e.target.value})}
                   rows={3}
                   className={`w-full p-3 border rounded-md ${
-                    darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-gray-900'
+                    darkMode ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                   }`}
                 />
               </div>
@@ -186,14 +186,14 @@ const FlightLogs: React.FC<FlightLogsProps> = ({ darkMode }) => {
               <button
                 onClick={() => setIsAdding(false)}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                  darkMode ? 'bg-gray-600 hover:bg-gray-500 text-white' : 'bg-gray-200 hover:bg-gray-300 text-gray-900'
+                  darkMode ? 'bg-theme-card-dark hover:bg-theme-accent-dark/20 text-theme-primary-dark' : 'bg-theme-card hover:bg-theme-accent/10 text-theme-primary'
                 }`}
               >
                 Cancel
               </button>
               <button
                 onClick={addFlightLog}
-                className="px-4 py-2 bg-theme-accent hover:bg-green-700 text-white rounded-md text-sm font-medium transition-colors"
+                className="px-4 py-2 bg-theme-accent dark:bg-theme-accent-dark hover:bg-theme-accent/80 dark:hover:bg-theme-accent-dark/80 text-white rounded-md text-sm font-medium transition-colors"
               >
                 Save Flight Log
               </button>
@@ -213,7 +213,7 @@ const FlightLogs: React.FC<FlightLogsProps> = ({ darkMode }) => {
               <div
                 key={log.id}
                 className={`p-4 rounded-lg border ${
-                  darkMode ? 'bg-gray-700 border-gray-600' : 'bg-gray-50 border-gray-200'
+                  darkMode ? 'bg-theme-card-dark border-theme-accent-dark/30' : 'bg-theme-card border-theme-accent/30'
                 }`}
               >
                 <div className="flex items-start justify-between">
@@ -253,24 +253,24 @@ const FlightLogs: React.FC<FlightLogsProps> = ({ darkMode }) => {
         </div>
 
         {flightLogs.length > 0 && (
-          <div className="mt-6 p-4 bg-theme-header dark:bg-blue-900 rounded-lg">
-            <h4 className="font-medium mb-2 text-gray-900 dark:text-white">Flight Summary</h4>
+          <div className="mt-6 p-4 bg-theme-header dark:bg-theme-header-dark rounded-lg">
+            <h4 className="font-medium mb-2 text-theme-primary dark:text-theme-primary-dark">Flight Summary</h4>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
               <div>
-                <div className="opacity-75 text-gray-700 dark:text-gray-200">Total Flights</div>
-                <div className="font-bold text-lg text-gray-900 dark:text-white">{flightLogs.length}</div>
+                <div className="opacity-75 text-theme-secondary dark:text-theme-secondary-dark">Total Flights</div>
+                <div className="font-bold text-lg text-theme-primary dark:text-theme-primary-dark">{flightLogs.length}</div>
               </div>
               <div>
-                <div className="opacity-75 text-gray-700 dark:text-gray-200">Total Hours</div>
-                <div className="font-bold text-lg text-gray-900 dark:text-white">{formatFlightTime(totalFlightTime)}</div>
+                <div className="opacity-75 text-theme-secondary dark:text-theme-secondary-dark">Total Hours</div>
+                <div className="font-bold text-lg text-theme-primary dark:text-theme-primary-dark">{formatFlightTime(totalFlightTime)}</div>
               </div>
               <div>
-                <div className="opacity-75 text-gray-700 dark:text-gray-200">Average Flight</div>
-                <div className="font-bold text-lg text-gray-900 dark:text-white">{formatFlightTime(totalFlightTime / flightLogs.length)}</div>
+                <div className="opacity-75 text-theme-secondary dark:text-theme-secondary-dark">Average Flight</div>
+                <div className="font-bold text-lg text-theme-primary dark:text-theme-primary-dark">{formatFlightTime(totalFlightTime / flightLogs.length)}</div>
               </div>
               <div>
-                <div className="opacity-75 text-gray-700 dark:text-gray-200">Aircraft Flown</div>
-                <div className="font-bold text-lg text-gray-900 dark:text-white">{new Set(flightLogs.map(log => log.aircraftNNumber)).size}</div>
+                <div className="opacity-75 text-theme-secondary dark:text-theme-secondary-dark">Aircraft Flown</div>
+                <div className="font-bold text-lg text-theme-primary dark:text-theme-primary-dark">{new Set(flightLogs.map(log => log.aircraftNNumber)).size}</div>
               </div>
             </div>
           </div>

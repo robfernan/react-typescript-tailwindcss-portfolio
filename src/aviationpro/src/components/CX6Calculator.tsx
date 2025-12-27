@@ -156,11 +156,11 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
   ];
 
   return (
-    <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg shadow-lg border ${
-      darkMode ? 'border-gray-700' : 'border-gray-200'
+    <div className={`${darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'} rounded-lg shadow-lg border ${
+      darkMode ? 'border-theme-accent-dark/30' : 'border-theme-accent/30'
     }`}>
-      <div className={`${darkMode ? 'bg-gray-700' : 'bg-theme-header'} border-b ${
-        darkMode ? 'border-gray-600' : 'border-gray-200'
+      <div className={`${darkMode ? 'bg-theme-header-dark' : 'bg-theme-header'} border-b ${
+        darkMode ? 'border-theme-accent-dark/30' : 'border-theme-accent/30'
       } p-6`}>
         <h2 className="text-2xl font-bold mb-4">CX-6 Flight Computer</h2>
         <div className="flex flex-wrap gap-2">
@@ -176,8 +176,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                       ? 'bg-theme-accent text-white'
                       : 'bg-theme-accent text-white'
                     : darkMode
-                      ? 'bg-gray-600 text-gray-300 hover:bg-gray-500'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-theme-card-dark text-theme-secondary-dark hover:bg-theme-accent-dark/20'
+                      : 'bg-theme-header text-theme-secondary hover:bg-theme-accent/10'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -203,8 +203,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                     onChange={(e) => setWindTriangle({...windTriangle, trueAirspeed: e.target.value})}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="120"
                   />
@@ -217,8 +217,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                     onChange={(e) => setWindTriangle({...windTriangle, windDirection: e.target.value})}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="270"
                   />
@@ -231,8 +231,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                     onChange={(e) => setWindTriangle({...windTriangle, windSpeed: e.target.value})}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="15"
                   />
@@ -245,8 +245,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                     onChange={(e) => setWindTriangle({...windTriangle, trueCourse: e.target.value})}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="090"
                   />
@@ -258,7 +258,7 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                   Calculate Wind Triangle
                 </button>
               </div>
-              <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
+              <div className={`p-6 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-header'}`}>
                 <h4 className="text-lg font-semibold mb-4">Results</h4>
                 <div className="space-y-3">
                   <div className="flex justify-between">
@@ -293,8 +293,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                     onChange={(e) => setTasCalculator({...tasCalculator, indicatedAirspeed: e.target.value})}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="120"
                   />
@@ -307,8 +307,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                     onChange={(e) => setTasCalculator({...tasCalculator, pressureAltitude: e.target.value})}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="5500"
                   />
@@ -321,8 +321,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                     onChange={(e) => setTasCalculator({...tasCalculator, temperature: e.target.value})}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="5"
                   />
@@ -334,7 +334,7 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                   Calculate True Airspeed
                 </button>
               </div>
-              <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
+              <div className={`p-6 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-header'}`}>
                 <h4 className="text-lg font-semibold mb-4">Result</h4>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-theme-accent mb-2">
@@ -360,8 +360,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                     onChange={(e) => setTsdCalculator({...tsdCalculator, calculateFor: e.target.value as 'time' | 'speed' | 'distance'})}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                   >
                     <option value="distance">Distance</option>
@@ -378,8 +378,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                     onChange={(e) => setTsdCalculator({...tsdCalculator, time: e.target.value})}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="1.5"
                     disabled={tsdCalculator.calculateFor === 'time'}
@@ -393,8 +393,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                     onChange={(e) => setTsdCalculator({...tsdCalculator, speed: e.target.value})}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="120"
                     disabled={tsdCalculator.calculateFor === 'speed'}
@@ -409,8 +409,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                     onChange={(e) => setTsdCalculator({...tsdCalculator, distance: e.target.value})}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="180"
                     disabled={tsdCalculator.calculateFor === 'distance'}
@@ -423,7 +423,7 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                   Calculate
                 </button>
               </div>
-              <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
+              <div className={`p-6 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-header'}`}>
                 <h4 className="text-lg font-semibold mb-4">Quick Reference</h4>
                 <div className="space-y-2 text-sm">
                   <div><strong>Distance = Speed × Time</strong></div>
@@ -458,8 +458,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                     onChange={(e) => setFuelCalculator({...fuelCalculator, fuelFlow: e.target.value})}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="8.5"
                   />
@@ -473,8 +473,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                     onChange={(e) => setFuelCalculator({...fuelCalculator, time: e.target.value})}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="2.5"
                   />
@@ -488,8 +488,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                     onChange={(e) => setFuelCalculator({...fuelCalculator, distance: e.target.value})}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="300"
                   />
@@ -502,14 +502,14 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                     onChange={(e) => setFuelCalculator({...fuelCalculator, speed: e.target.value})}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="120"
                   />
                 </div>
               </div>
-              <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
+              <div className={`p-6 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-header'}`}>
                 <h4 className="text-lg font-semibold mb-4">Fuel Calculations</h4>
                 <div className="space-y-4">
                   {fuelCalculator.fuelFlow && fuelCalculator.time && (
@@ -558,8 +558,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                     onChange={(e) => setCrosswindCalculator({...crosswindCalculator, runwayHeading: e.target.value})}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode
-                        ? 'bg-gray-700 border-gray-600 text-white'
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark'
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="090"
                     min="0"
@@ -574,8 +574,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                     onChange={(e) => setCrosswindCalculator({...crosswindCalculator, windDirection: e.target.value})}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode
-                        ? 'bg-gray-700 border-gray-600 text-white'
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark'
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="270"
                     min="0"
@@ -590,8 +590,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                     onChange={(e) => setCrosswindCalculator({...crosswindCalculator, windSpeed: e.target.value})}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode
-                        ? 'bg-gray-700 border-gray-600 text-white'
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark'
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="15"
                     min="0"
@@ -604,7 +604,7 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                   Calculate Crosswind
                 </button>
               </div>
-              <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
+              <div className={`p-6 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-header'}`}>
                 <h4 className="text-lg font-semibold mb-4">Crosswind Analysis</h4>
                 <div className="space-y-4">
                   <div className="flex justify-between">

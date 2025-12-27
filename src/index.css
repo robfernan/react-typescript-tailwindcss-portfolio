@@ -172,3 +172,43 @@ img {
 .overflow-x-auto::-webkit-scrollbar-thumb:hover {
   background-color: rgba(156, 163, 175, 0.7);
 }
+
+/* Table input styling - force text visibility only */
+table input[type="text"],
+table input[type="number"] {
+  color: var(--color-primary) !important;
+  background-color: transparent !important;
+}
+
+.dark table input[type="text"],
+.dark table input[type="number"] {
+  color: var(--color-primary-dark) !important;
+  background-color: transparent !important;
+}
+
+/* Ensure placeholder text is visible */
+table input::placeholder {
+  color: #9ca3af !important;
+}
+
+.dark table input::placeholder {
+  color: #6b7280 !important;
+}
+
+/* Focus states for table inputs */
+table input:focus {
+  outline: 2px solid #3b82f6 !important;
+  outline-offset: 0px !important;
+  background-color: rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Force table header cells to use theme colors */
+table thead th {
+  background-color: var(--color-accent) !important;
+  color: white !important;
+}
+
+.dark table thead th {
+  background-color: var(--color-accent-dark) !important;
+  color: white !important;
+}

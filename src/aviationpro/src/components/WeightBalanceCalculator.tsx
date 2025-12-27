@@ -208,11 +208,11 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
   const results = calculateWeightAndBalance();
 
   return (
-    <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg shadow-lg border ${
-      darkMode ? 'border-gray-700' : 'border-gray-200'
+    <div className={`${darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'} rounded-lg shadow-lg border ${
+      darkMode ? 'border-theme-accent-dark/30' : 'border-theme-accent/30'
     }`}>
-      <div className={`${darkMode ? 'bg-gray-700' : 'bg-theme-header'} border-b ${
-        darkMode ? 'border-gray-600' : 'border-gray-200'
+      <div className={`${darkMode ? 'bg-theme-header-dark' : 'bg-theme-header'} border-b ${
+        darkMode ? 'border-theme-accent-dark/30' : 'border-theme-accent/30'
       } p-6`}>
         <div className="flex items-center space-x-3 mb-4">
           <Scale className={`w-6 h-6 ${darkMode ? 'text-theme-accent-dark' : 'text-theme-accent'}`} />
@@ -226,7 +226,7 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
               value={aircraftProfile}
               onChange={(e) => setAircraftProfile(e.target.value)}
               className={`w-full p-2 border rounded-md ${
-                darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-gray-900'
+                darkMode ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' : 'bg-theme-card border-theme-accent/30 text-theme-primary'
               }`}
             >
               {(sampleAircrafts as any[]).map(a => (
@@ -242,8 +242,8 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
               onChange={(e) => setAircraftLimits({...aircraftLimits, maxWeight: e.target.value})}
               className={`w-full p-2 border rounded-md ${
                 darkMode 
-                  ? 'bg-gray-600 border-gray-500 text-white' 
-                  : 'bg-white border-gray-300 text-gray-900'
+                  ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                  : 'bg-theme-card border-theme-accent/30 text-theme-primary'
               }`}
             />
           </div>
@@ -256,8 +256,8 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
               onChange={(e) => setAircraftLimits({...aircraftLimits, forwardCG: e.target.value})}
               className={`w-full p-2 border rounded-md ${
                 darkMode 
-                  ? 'bg-gray-600 border-gray-500 text-white' 
-                  : 'bg-white border-gray-300 text-gray-900'
+                  ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                  : 'bg-theme-card border-theme-accent/30 text-theme-primary'
               }`}
             />
           </div>
@@ -270,8 +270,8 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
               onChange={(e) => setAircraftLimits({...aircraftLimits, aftCG: e.target.value})}
               className={`w-full p-2 border rounded-md ${
                 darkMode 
-                  ? 'bg-gray-600 border-gray-500 text-white' 
-                  : 'bg-white border-gray-300 text-gray-900'
+                  ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                  : 'bg-theme-card border-theme-accent/30 text-theme-primary'
               }`}
             />
           </div>
@@ -284,8 +284,8 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
               onChange={(e) => setAircraftData({...aircraftData, emptyWeight: e.target.value})}
               className={`w-full p-2 border rounded-md ${
                 darkMode 
-                  ? 'bg-gray-600 border-gray-500 text-white' 
-                  : 'bg-white border-gray-300 text-gray-900'
+                  ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                  : 'bg-theme-card border-theme-accent/30 text-theme-primary'
               }`}
             />
           </div>
@@ -298,8 +298,8 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
               onChange={(e) => setAircraftData({...aircraftData, emptyArm: e.target.value})}
               className={`w-full p-2 border rounded-md ${
                 darkMode 
-                  ? 'bg-gray-600 border-gray-500 text-white' 
-                  : 'bg-white border-gray-300 text-gray-900'
+                  ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                  : 'bg-theme-card border-theme-accent/30 text-theme-primary'
               }`}
             />
           </div>
@@ -312,8 +312,8 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
               onChange={(e) => setAircraftData({...aircraftData, fuelWeight: e.target.value})}
               className={`w-full p-2 border rounded-md ${
                 darkMode 
-                  ? 'bg-gray-600 border-gray-500 text-white' 
-                  : 'bg-white border-gray-300 text-gray-900'
+                  ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                  : 'bg-theme-card border-theme-accent/30 text-theme-primary'
               }`}
             />
           </div>
@@ -326,8 +326,8 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
               onChange={(e) => setAircraftData({...aircraftData, fuelArm: e.target.value})}
               className={`w-full p-2 border rounded-md ${
                 darkMode
-                  ? 'bg-gray-600 border-gray-500 text-white'
-                  : 'bg-white border-gray-300 text-gray-900'
+                  ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark'
+                  : 'bg-theme-card border-theme-accent/30 text-theme-primary'
               }`}
             />
           </div>
@@ -340,8 +340,8 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
               onChange={(e) => setAircraftData({...aircraftData, startupDeduction: e.target.value})}
               className={`w-full p-2 border rounded-md ${
                 darkMode 
-                  ? 'bg-gray-600 border-gray-500 text-white' 
-                  : 'bg-white border-gray-300 text-gray-900'
+                  ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                  : 'bg-theme-card border-theme-accent/30 text-theme-primary'
               }`}
             />
           </div>
@@ -354,8 +354,8 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
               onChange={(e) => setAircraftData({...aircraftData, burnedDeduction: e.target.value})}
               className={`w-full p-2 border rounded-md ${
                 darkMode 
-                  ? 'bg-gray-600 border-gray-500 text-white' 
-                  : 'bg-white border-gray-300 text-gray-900'
+                  ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                  : 'bg-theme-card border-theme-accent/30 text-theme-primary'
               }`}
             />
           </div>
@@ -369,7 +369,7 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
             <button
               onClick={addWeightItem}
               className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${
-                darkMode ? 'bg-theme-accent hover:bg-theme-header0 text-white' : 'bg-theme-accent hover:bg-blue-700 text-white'
+                darkMode ? 'bg-theme-accent hover:bg-theme-accent-dark/80 text-white' : 'bg-theme-accent hover:bg-theme-accent/80 text-white'
               }`}
             >
               <Plus className="w-4 h-4 inline mr-1" />
@@ -378,7 +378,7 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
             <button
               onClick={() => window.print()}
               className={`px-3 py-1 rounded-md text-sm font-medium transition-colors border ${
-                darkMode ? 'border-gray-500 text-white' : 'border-gray-300 text-gray-900'
+                darkMode ? 'border-theme-accent-dark/30 text-theme-primary-dark' : 'border-theme-accent/30 text-theme-primary'
               }`}
             >
               Print
@@ -387,14 +387,14 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full border-collapse border border-gray-300">
+          <table className="w-full border-collapse border border-theme-accent/30">
             <thead>
-              <tr className={`${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
-                <th className="border border-gray-300 p-3 text-left font-medium">Item</th>
-                <th className="border border-gray-300 p-3 text-center font-medium">Weight (lbs)</th>
-                <th className="border border-gray-300 p-3 text-center font-medium">Arm (in)</th>
-                <th className="border border-gray-300 p-3 text-center font-medium">Moment</th>
-                <th className="border border-gray-300 p-3 text-center font-medium">Actions</th>
+              <tr className={`${darkMode ? 'bg-theme-header-dark' : 'bg-theme-header'}`}>
+                <th className="border border-theme-accent/30 p-3 text-left font-medium">Item</th>
+                <th className="border border-theme-accent/30 p-3 text-center font-medium">Weight (lbs)</th>
+                <th className="border border-theme-accent/30 p-3 text-center font-medium">Arm (in)</th>
+                <th className="border border-theme-accent/30 p-3 text-center font-medium">Moment</th>
+                <th className="border border-theme-accent/30 p-3 text-center font-medium">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -433,10 +433,10 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
 
                 return (
                   <tr key={item.id} className={index % 2 === 0 ? 
-                    (darkMode ? 'bg-gray-800' : 'bg-white') : 
-                    (darkMode ? 'bg-gray-750' : 'bg-gray-50')
+                    (darkMode ? 'bg-theme-card-dark' : 'bg-theme-card') : 
+                    (darkMode ? 'bg-theme-card-dark/50' : 'bg-theme-header')
                   }>
-                    <td className="border border-gray-300 p-3">
+                    <td className="border border-theme-accent/30 p-3">
                       <div className="flex flex-col">
                         <span className="mb-2">
                           <input
@@ -444,7 +444,7 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
                             value={item.name}
                             onChange={(e) => updateWeightItem(item.id, 'name', e.target.value)}
                             className={`w-full p-2 border rounded ${
-                              darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-gray-900'
+                              darkMode ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                             }`}
                           />
                         </span>
@@ -459,7 +459,7 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
                         )}
                       </div>
                     </td>
-                    <td className="border border-gray-300 p-3">
+                    <td className="border border-theme-accent/30 p-3">
                       {/* display weight: for fuel rows show lbs (computed), otherwise editable lbs */}
                       {isFuel || isStartup || isBurned ? (
                         <input
@@ -467,7 +467,7 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
                           value={displayWeight.toFixed(1)}
                           disabled
                           className={`w-full p-2 border rounded text-center ${
-                            darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300 text-gray-900'
+                            darkMode ? 'bg-theme-card-dark/50 border-theme-accent-dark/30 text-theme-secondary-dark' : 'bg-theme-header border-theme-accent/30 text-theme-secondary'
                           }`}
                         />
                       ) : (
@@ -476,28 +476,28 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
                           value={item.weight}
                           onChange={(e) => updateWeightItem(item.id, 'weight', e.target.value)}
                           className={`w-full p-2 border rounded text-center ${
-                            darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-gray-900'
+                            darkMode ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                           }`}
                           placeholder="0"
                         />
                       )}
                     </td>
-                    <td className="border border-gray-300 p-3">
+                    <td className="border border-theme-accent/30 p-3">
                       <input
                         type="number"
                         step="0.1"
                         value={item.arm}
                         onChange={(e) => updateWeightItem(item.id, 'arm', e.target.value)}
                         className={`w-full p-2 border rounded text-center ${
-                          darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-gray-900'
+                          darkMode ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                         }`}
                         placeholder="0.0"
                       />
                     </td>
-                    <td className="border border-gray-300 p-3 text-center font-medium">
+                    <td className="border border-theme-accent/30 p-3 text-center font-medium">
                       {moment.toFixed(1)}
                     </td>
-                    <td className="border border-gray-300 p-3 text-center">
+                    <td className="border border-theme-accent/30 p-3 text-center">
                       {/* allow removal only for custom items (id length > 10) */}
                       {parseInt(item.id) && item.id.length > 10 ? (
                         <button
@@ -521,56 +521,56 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
                 const fuelArmDefault = profile.fuelArm ? Number(profile.fuelArm) : 48;
 
                 rows.push(
-                  <tr key="ramp" className={darkMode ? 'bg-gray-800' : 'bg-white'}>
-                    <td className="border border-gray-300 p-3">Ramp Weight</td>
-                    <td className="border border-gray-300 p-3 text-center"><input type="text" disabled value={r.rampWeight.toFixed(1)} className="w-full p-2 border rounded text-center"/></td>
-                    <td className="border border-gray-300 p-3 text-center"><input type="text" disabled value={r.rampCG.toFixed(2)} className="w-full p-2 border rounded text-center"/></td>
-                    <td className="border border-gray-300 p-3 text-center font-medium">{r.rampMoment.toFixed(1)}</td>
-                    <td className="border border-gray-300 p-3 text-center"></td>
+                  <tr key="ramp" className={darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'}>
+                    <td className="border border-theme-accent/30 p-3">Ramp Weight</td>
+                    <td className="border border-theme-accent/30 p-3 text-center"><input type="text" disabled value={r.rampWeight.toFixed(1)} className="w-full p-2 border rounded text-center"/></td>
+                    <td className="border border-theme-accent/30 p-3 text-center"><input type="text" disabled value={r.rampCG.toFixed(2)} className="w-full p-2 border rounded text-center"/></td>
+                    <td className="border border-theme-accent/30 p-3 text-center font-medium">{r.rampMoment.toFixed(1)}</td>
+                    <td className="border border-theme-accent/30 p-3 text-center"></td>
                   </tr>
                 );
 
                 // Less Startup (deduction)
                 rows.push(
-                  <tr key="less-startup" className={darkMode ? 'bg-gray-750' : 'bg-gray-50'}>
-                    <td className="border border-gray-300 p-3">Less Startup/Taxi/Run-up</td>
-                    <td className="border border-gray-300 p-3 text-center"><input type="text" disabled value={(-r.startupWeightLbs).toFixed(1)} className="w-full p-2 border rounded text-center"/></td>
-                    <td className="border border-gray-300 p-3 text-center"><input type="text" disabled value={fuelArmDefault.toFixed(2)} className="w-full p-2 border rounded text-center"/></td>
-                    <td className="border border-gray-300 p-3 text-center font-medium">{(-r.startupMoment).toFixed(1)}</td>
-                    <td className="border border-gray-300 p-3 text-center"></td>
+                  <tr key="less-startup" className={darkMode ? 'bg-theme-card-dark/50' : 'bg-theme-header'}>
+                    <td className="border border-theme-accent/30 p-3">Less Startup/Taxi/Run-up</td>
+                    <td className="border border-theme-accent/30 p-3 text-center"><input type="text" disabled value={(-r.startupWeightLbs).toFixed(1)} className="w-full p-2 border rounded text-center"/></td>
+                    <td className="border border-theme-accent/30 p-3 text-center"><input type="text" disabled value={fuelArmDefault.toFixed(2)} className="w-full p-2 border rounded text-center"/></td>
+                    <td className="border border-theme-accent/30 p-3 text-center font-medium">{(-r.startupMoment).toFixed(1)}</td>
+                    <td className="border border-theme-accent/30 p-3 text-center"></td>
                   </tr>
                 );
 
                 // Takeoff
                 rows.push(
-                  <tr key="takeoff" className={darkMode ? 'bg-gray-800' : 'bg-white'}>
-                    <td className="border border-gray-300 p-3">Takeoff Weight</td>
-                    <td className="border border-gray-300 p-3 text-center"><input type="text" disabled value={r.takeoffWeight.toFixed(1)} className="w-full p-2 border rounded text-center"/></td>
-                    <td className="border border-gray-300 p-3 text-center"><input type="text" disabled value={r.takeoffCG.toFixed(2)} className="w-full p-2 border rounded text-center"/></td>
-                    <td className="border border-gray-300 p-3 text-center font-medium">{r.takeoffMoment.toFixed(1)}</td>
-                    <td className="border border-gray-300 p-3 text-center"></td>
+                  <tr key="takeoff" className={darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'}>
+                    <td className="border border-theme-accent/30 p-3">Takeoff Weight</td>
+                    <td className="border border-theme-accent/30 p-3 text-center"><input type="text" disabled value={r.takeoffWeight.toFixed(1)} className="w-full p-2 border rounded text-center"/></td>
+                    <td className="border border-theme-accent/30 p-3 text-center"><input type="text" disabled value={r.takeoffCG.toFixed(2)} className="w-full p-2 border rounded text-center"/></td>
+                    <td className="border border-theme-accent/30 p-3 text-center font-medium">{r.takeoffMoment.toFixed(1)}</td>
+                    <td className="border border-theme-accent/30 p-3 text-center"></td>
                   </tr>
                 );
 
                 // Less Fuel Burned
                 rows.push(
-                  <tr key="less-burn" className={darkMode ? 'bg-gray-750' : 'bg-gray-50'}>
-                    <td className="border border-gray-300 p-3">Less Fuel Burned</td>
-                    <td className="border border-gray-300 p-3 text-center"><input type="text" disabled value={(-r.burnedWeightLbs).toFixed(1)} className="w-full p-2 border rounded text-center"/></td>
-                    <td className="border border-gray-300 p-3 text-center"><input type="text" disabled value={fuelArmDefault.toFixed(2)} className="w-full p-2 border rounded text-center"/></td>
-                    <td className="border border-gray-300 p-3 text-center font-medium">{(-r.burnedMoment).toFixed(1)}</td>
-                    <td className="border border-gray-300 p-3 text-center"></td>
+                  <tr key="less-burn" className={darkMode ? 'bg-theme-card-dark/50' : 'bg-theme-header'}>
+                    <td className="border border-theme-accent/30 p-3">Less Fuel Burned</td>
+                    <td className="border border-theme-accent/30 p-3 text-center"><input type="text" disabled value={(-r.burnedWeightLbs).toFixed(1)} className="w-full p-2 border rounded text-center"/></td>
+                    <td className="border border-theme-accent/30 p-3 text-center"><input type="text" disabled value={fuelArmDefault.toFixed(2)} className="w-full p-2 border rounded text-center"/></td>
+                    <td className="border border-theme-accent/30 p-3 text-center font-medium">{(-r.burnedMoment).toFixed(1)}</td>
+                    <td className="border border-theme-accent/30 p-3 text-center"></td>
                   </tr>
                 );
 
                 // Landing
                 rows.push(
-                  <tr key="landing" className={darkMode ? 'bg-gray-800' : 'bg-white'}>
-                    <td className="border border-gray-300 p-3">Landing Weight</td>
-                    <td className="border border-gray-300 p-3 text-center"><input type="text" disabled value={r.landingWeight.toFixed(1)} className="w-full p-2 border rounded text-center"/></td>
-                    <td className="border border-gray-300 p-3 text-center"><input type="text" disabled value={r.landingCG.toFixed(2)} className="w-full p-2 border rounded text-center"/></td>
-                    <td className="border border-gray-300 p-3 text-center font-medium">{r.landingMoment.toFixed(1)}</td>
-                    <td className="border border-gray-300 p-3 text-center"></td>
+                  <tr key="landing" className={darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'}>
+                    <td className="border border-theme-accent/30 p-3">Landing Weight</td>
+                    <td className="border border-theme-accent/30 p-3 text-center"><input type="text" disabled value={r.landingWeight.toFixed(1)} className="w-full p-2 border rounded text-center"/></td>
+                    <td className="border border-theme-accent/30 p-3 text-center"><input type="text" disabled value={r.landingCG.toFixed(2)} className="w-full p-2 border rounded text-center"/></td>
+                    <td className="border border-theme-accent/30 p-3 text-center font-medium">{r.landingMoment.toFixed(1)}</td>
+                    <td className="border border-theme-accent/30 p-3 text-center"></td>
                   </tr>
                 );
 
@@ -582,7 +582,7 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
 
         {/* Results Section */}
         <div className={`mt-6 grid grid-cols-1 md:grid-cols-2 gap-6`}>
-          <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
+          <div className={`p-6 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-header'}`}>
             <h4 className="text-lg font-semibold mb-4">Results</h4>
             <div className="space-y-3">
               <div className="flex justify-between">
@@ -616,7 +616,7 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
             </div>
           </div>
 
-          <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
+          <div className={`p-6 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-header'}`}>
             <h4 className="text-lg font-semibold mb-4">Safety Limits Check</h4>
             <div className="space-y-3">
               <div className="flex items-center justify-between">
@@ -662,13 +662,13 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
         </div>
 
         {/* CG Envelope Image */}
-        <div className={`mt-6 p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
+        <div className={`mt-6 p-6 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-header'}`}>
           <h4 className="text-lg font-semibold mb-4">Center of Gravity Envelope</h4>
           <div className="text-center">
             <img
               src="/centerofgravitycessna172.png"
               alt="Cessna 172 Center of Gravity Envelope"
-              className="w-full h-auto rounded-lg shadow-xl border-2 border-gray-300 dark:border-gray-600 mx-auto"
+              className="w-full h-auto rounded-lg shadow-xl border-2 border-theme-accent/30 dark:border-theme-accent-dark/30 mx-auto"
               style={{
                 maxWidth: '1200px',
                 maxHeight: '800px',
@@ -706,7 +706,7 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
         </div>
 
         {/* Fuel Analysis */}
-        <div className={`mt-6 p-4 rounded ${darkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
+        <div className={`mt-6 p-4 rounded ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-header'}`}>
           <h4 className="text-lg font-semibold mb-3">Fuel Analysis</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>

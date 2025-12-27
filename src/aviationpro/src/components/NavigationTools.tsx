@@ -189,11 +189,11 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
   };
 
   return (
-    <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg shadow-lg border ${
-      darkMode ? 'border-gray-700' : 'border-gray-200'
+    <div className={`${darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'} rounded-lg shadow-lg border ${
+      darkMode ? 'border-theme-accent-dark/30' : 'border-theme-accent/30'
     }`}>
-      <div className={`${darkMode ? 'bg-gray-700' : 'bg-theme-header'} border-b ${
-        darkMode ? 'border-gray-600' : 'border-gray-200'
+      <div className={`${darkMode ? 'bg-theme-header-dark' : 'bg-theme-header'} border-b ${
+        darkMode ? 'border-theme-accent-dark/30' : 'border-theme-accent/30'
       } p-6`}>
         <h2 className="text-2xl font-bold mb-4">Navigation Tools</h2>
         <div className="flex flex-wrap gap-2">
@@ -206,11 +206,11 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                 className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   activetool === tool.id
                     ? darkMode
-                      ? 'bg-theme-accent text-white'
+                      ? 'bg-theme-accent-dark text-white'
                       : 'bg-theme-accent text-white'
                     : darkMode
-                      ? 'bg-gray-600 text-gray-300 hover:bg-gray-500'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-theme-card-dark text-theme-secondary-dark hover:bg-theme-accent-dark/20'
+                      : 'bg-theme-card text-theme-secondary hover:bg-theme-accent/10'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -240,8 +240,8 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                         onChange={(e) => setDistanceCalc({...distanceCalc, lat1: e.target.value})}
                         className={`w-full p-2 border rounded ${
                           darkMode 
-                            ? 'bg-gray-700 border-gray-600 text-white' 
-                            : 'bg-white border-gray-300 text-gray-900'
+                            ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                            : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                         }`}
                         placeholder="40.7128"
                       />
@@ -255,8 +255,8 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                         onChange={(e) => setDistanceCalc({...distanceCalc, lon1: e.target.value})}
                         className={`w-full p-2 border rounded ${
                           darkMode 
-                            ? 'bg-gray-700 border-gray-600 text-white' 
-                            : 'bg-white border-gray-300 text-gray-900'
+                            ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                            : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                         }`}
                         placeholder="-74.0060"
                       />
@@ -276,8 +276,8 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                         onChange={(e) => setDistanceCalc({...distanceCalc, lat2: e.target.value})}
                         className={`w-full p-2 border rounded ${
                           darkMode 
-                            ? 'bg-gray-700 border-gray-600 text-white' 
-                            : 'bg-white border-gray-300 text-gray-900'
+                            ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                            : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                         }`}
                         placeholder="34.0522"
                       />
@@ -291,8 +291,8 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                         onChange={(e) => setDistanceCalc({...distanceCalc, lon2: e.target.value})}
                         className={`w-full p-2 border rounded ${
                           darkMode 
-                            ? 'bg-gray-700 border-gray-600 text-white' 
-                            : 'bg-white border-gray-300 text-gray-900'
+                            ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                            : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                         }`}
                         placeholder="-118.2437"
                       />
@@ -302,13 +302,13 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                 
                 <button
                   onClick={calculateDistance}
-                  className="w-full py-3 bg-theme-accent hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                  className="w-full py-3 bg-theme-accent dark:bg-theme-accent-dark hover:bg-theme-accent/80 dark:hover:bg-theme-accent-dark/80 text-white rounded-lg font-medium transition-colors"
                 >
                   Calculate Distance
                 </button>
               </div>
               
-              <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
+              <div className={`p-6 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-header'}`}>
                 <h4 className="text-lg font-semibold mb-4">Result</h4>
                 {distanceCalc.result !== null ? (
                   <div className="text-center">
@@ -349,8 +349,8 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                         onChange={(e) => setBearingCalc({...bearingCalc, lat1: e.target.value})}
                         className={`w-full p-2 border rounded ${
                           darkMode 
-                            ? 'bg-gray-700 border-gray-600 text-white' 
-                            : 'bg-white border-gray-300 text-gray-900'
+                            ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                            : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                         }`}
                       />
                     </div>
@@ -363,8 +363,8 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                         onChange={(e) => setBearingCalc({...bearingCalc, lon1: e.target.value})}
                         className={`w-full p-2 border rounded ${
                           darkMode 
-                            ? 'bg-gray-700 border-gray-600 text-white' 
-                            : 'bg-white border-gray-300 text-gray-900'
+                            ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                            : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                         }`}
                       />
                     </div>
@@ -383,8 +383,8 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                         onChange={(e) => setBearingCalc({...bearingCalc, lat2: e.target.value})}
                         className={`w-full p-2 border rounded ${
                           darkMode 
-                            ? 'bg-gray-700 border-gray-600 text-white' 
-                            : 'bg-white border-gray-300 text-gray-900'
+                            ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                            : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                         }`}
                       />
                     </div>
@@ -397,8 +397,8 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                         onChange={(e) => setBearingCalc({...bearingCalc, lon2: e.target.value})}
                         className={`w-full p-2 border rounded ${
                           darkMode 
-                            ? 'bg-gray-700 border-gray-600 text-white' 
-                            : 'bg-white border-gray-300 text-gray-900'
+                            ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                            : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                         }`}
                       />
                     </div>
@@ -407,13 +407,13 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                 
                 <button
                   onClick={calculateBearing}
-                  className="w-full py-3 bg-theme-accent hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                  className="w-full py-3 bg-theme-accent dark:bg-theme-accent-dark hover:bg-theme-accent/80 dark:hover:bg-theme-accent-dark/80 text-white rounded-lg font-medium transition-colors"
                 >
                   Calculate Bearing
                 </button>
               </div>
               
-              <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
+              <div className={`p-6 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-header'}`}>
                 <h4 className="text-lg font-semibold mb-4">Result</h4>
                 {bearingCalc.result !== null ? (
                   <div className="text-center">
@@ -452,8 +452,8 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                     }}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="100"
                   />
@@ -471,8 +471,8 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                     }}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="115.078"
                   />
@@ -490,8 +490,8 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                     }}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="185.2"
                   />
@@ -509,15 +509,15 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                     }}
                     className={`w-full p-3 border rounded-lg ${
                       darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
-                        : 'bg-white border-gray-300 text-gray-900'
+                        ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' 
+                        : 'bg-theme-card border-theme-accent/30 text-theme-primary'
                     }`}
                     placeholder="607612"
                   />
                 </div>
               </div>
               
-              <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
+              <div className={`p-6 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-header'}`}>
                 <h4 className="text-lg font-semibold mb-4">Aviation Distance Reference</h4>
                 <div className="space-y-3 text-sm">
                   <div><strong>1 nautical mile =</strong></div>
@@ -543,7 +543,7 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
             <h3 className="text-xl font-semibold">Official Aviation Weather Services</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {weatherServices.map((service, index) => (
-                <div key={index} className={`p-4 rounded-lg border ${darkMode ? 'bg-gray-700 border-gray-600' : 'bg-gray-50 border-gray-200'}`}>
+                <div key={index} className={`p-4 rounded-lg border ${darkMode ? 'bg-theme-card-dark border-theme-accent-dark/30' : 'bg-theme-header border-theme-accent/30'}`}>
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <h4 className="font-semibold text-sm mb-1">{service.name}</h4>
@@ -555,7 +555,7 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                     href={service.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 text-xs bg-theme-accent hover:bg-blue-700 text-white px-3 py-1 rounded transition-colors"
+                    className="inline-flex items-center space-x-2 text-xs bg-theme-accent dark:bg-theme-accent-dark hover:bg-theme-accent/80 dark:hover:bg-theme-accent-dark/80 text-white px-3 py-1 rounded transition-colors"
                   >
                     <span>Visit Site</span>
                     <ExternalLink className="w-3 h-3" />
@@ -589,7 +589,7 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                     type="time"
                     value={timeConverter.utcTime}
                     onChange={(e) => setTimeConverter({...timeConverter, utcTime: e.target.value})}
-                    className={`w-full p-3 border rounded-lg ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300 text-gray-900'}`}
+                    className={`w-full p-3 border rounded-lg ${darkMode ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' : 'bg-theme-card border-theme-accent/30 text-theme-primary'}`}
                   />
                 </div>
                 <div>
@@ -599,7 +599,7 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                     step="0.5"
                     value={timeConverter.localOffset}
                     onChange={(e) => setTimeConverter({...timeConverter, localOffset: e.target.value})}
-                    className={`w-full p-3 border rounded-lg ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300 text-gray-900'}`}
+                    className={`w-full p-3 border rounded-lg ${darkMode ? 'bg-theme-card-dark border-theme-accent-dark/30 text-theme-primary-dark' : 'bg-theme-card border-theme-accent/30 text-theme-primary'}`}
                     placeholder="-5"
                     min="-12"
                     max="14"
@@ -607,13 +607,13 @@ const NavigationTools: React.FC<NavigationToolsProps> = ({ darkMode }) => {
                 </div>
                 <button
                   onClick={convertTimeZone}
-                  className="w-full py-3 bg-theme-accent hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                  className="w-full py-3 bg-theme-accent dark:bg-theme-accent-dark hover:bg-theme-accent/80 dark:hover:bg-theme-accent-dark/80 text-white rounded-lg font-medium transition-colors"
                 >
                   Convert Time
                 </button>
               </div>
 
-              <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
+              <div className={`p-6 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-header'}`}>
                 <h4 className="text-lg font-semibold mb-4">Converted Time</h4>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-theme-accent mb-2">

@@ -28,29 +28,29 @@ function AviationProApp({ darkMode = false, toggleDarkMode }: AviationProAppProp
   const localToggle = toggleDarkMode ?? (() => {});
 
   return (
-    <div className={`aviation-scope min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
-      <header className="flex items-center justify-between px-4 py-2 border-b border-gray-300 dark:border-gray-700">
-        <h1 className="text-2xl font-bold">AviationPro</h1>
-        <button onClick={localToggle} className="px-3 py-1 rounded bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
-          {darkMode ? 'Light Mode' : 'Dark Mode'}
-        </button>
+    <div className="aviation-scope min-h-screen bg-theme-bg dark:bg-theme-bg-dark text-theme-primary dark:text-theme-primary-dark">
+      <header className="border-b border-theme-accent/30 dark:border-theme-accent-dark/30 bg-theme-header dark:bg-theme-header-dark">
+        <div className="px-4 py-2 flex items-center justify-between gap-2 sm:gap-4">
+          <h1 className="text-2xl font-bold text-theme-primary dark:text-theme-primary-dark flex-shrink-0">AviationPro</h1>
+          <nav className="flex gap-1">
+            {tabs.map(tab => (
+              <button
+                key={tab.id}
+                className={`flex items-center justify-center gap-1 p-2 sm:px-3 sm:py-1 rounded text-xs sm:text-sm font-medium whitespace-nowrap transition-colors ${
+                  activeTab === tab.id 
+                    ? 'bg-theme-accent dark:bg-theme-accent-dark text-white' 
+                    : 'bg-theme-card dark:bg-theme-card-dark text-theme-secondary dark:text-theme-secondary-dark hover:bg-theme-accent/10 dark:hover:bg-theme-accent-dark/10'
+                }`}
+                onClick={() => setActiveTab(tab.id)}
+                title={tab.label}
+              >
+                <tab.icon className="w-4 h-4 sm:w-4 sm:h-4 flex-shrink-0" />
+                <span className="hidden sm:inline">{tab.label}</span>
+              </button>
+            ))}
+          </nav>
+        </div>
       </header>
-      <nav className="flex space-x-2 px-4 py-2 border-b border-gray-200 dark:border-gray-700">
-        {tabs.map(tab => (
-          <button
-            key={tab.id}
-            className={`flex items-center px-3 py-1 rounded transition-colors ${
-              activeTab === tab.id 
-                ? 'bg-blue-500 text-white' 
-                : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
-            }`}
-            onClick={() => setActiveTab(tab.id)}
-          >
-            <tab.icon className="w-4 h-4 mr-1" />
-            {tab.label}
-          </button>
-        ))}
-      </nav>
       <main className="p-4">
         {activeTab === 'planner' && <FlightPlanForm darkMode={darkMode} />}
         {activeTab === 'cx6' && <CX6Calculator darkMode={darkMode} />}
