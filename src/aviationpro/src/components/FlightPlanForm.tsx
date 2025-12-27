@@ -500,22 +500,22 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
       </div>
 
       {/* Checkpoints Table */}
-      <div className="p-6">
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-bold text-theme-primary dark:text-theme-primary-dark">Route Planning</h3>
+      <div className="p-2 sm:p-4 md:p-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 sm:mb-6 gap-3">
+          <h3 className="text-lg sm:text-xl font-bold text-theme-primary dark:text-theme-primary-dark">Route Planning</h3>
           <div className="space-x-2">
             <button
               onClick={addCheckpoint}
-              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 transform hover:scale-105 shadow-md hover:shadow-lg bg-theme-accent hover:bg-theme-accent/80 dark:bg-theme-accent-dark dark:hover:bg-theme-accent-dark/80 text-white`}
+              className={`px-3 py-2 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-200 transform hover:scale-105 shadow-md hover:shadow-lg bg-theme-accent hover:bg-theme-accent/80 dark:bg-theme-accent-dark dark:hover:bg-theme-accent-dark/80 text-white`}
             >
-              <Plus className="w-4 h-4 inline mr-2" />
+              <Plus className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 sm:mr-2" />
               Add Checkpoint
             </button>
           </div>
         </div>
 
-        <div className="overflow-x-auto w-full">
-          <table className="w-full border-collapse text-sm min-w-[2800px] bg-theme-card dark:bg-theme-card-dark shadow-lg rounded-lg overflow-hidden">
+        <div className="overflow-x-auto w-full -mx-2 sm:mx-0">
+          <table className="w-full border-collapse text-xs sm:text-sm min-w-[1400px] sm:min-w-[2000px] lg:min-w-[2800px] bg-theme-card dark:bg-theme-card-dark shadow-lg rounded-lg overflow-hidden">
             <thead>
               <tr className="bg-theme-accent dark:bg-theme-accent-dark text-white">
                 <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[120px]" rowSpan={2}>Checkpoint</th>

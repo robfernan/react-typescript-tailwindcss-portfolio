@@ -168,11 +168,17 @@
 .aviation-scope .bg-theme-card { background-color: var(--ap-bg-panel) !important; }
 .aviation-scope .bg-theme-bg { background-color: var(--ap-bg-base) !important; }
 .aviation-scope .bg-theme-accent { background-color: var(--ap-accent) !important; }
+.aviation-scope .bg-theme-header { background-color: var(--color-header) !important; }
 .aviation-scope .text-theme-primary { color: var(--ap-primary) !important; }
+.aviation-scope .text-theme-accent { color: var(--ap-accent) !important; }
+.aviation-scope .text-theme-secondary { color: var(--color-secondary) !important; }
 .aviation-scope .border-theme-accent { border-color: var(--ap-border) !important; }
 
 .dark .aviation-scope .bg-theme-card-dark { background-color: var(--ap-bg-panel-dark) !important; }
 .dark .aviation-scope .bg-theme-bg-dark { background-color: var(--ap-bg-base-dark) !important; }
 .dark .aviation-scope .bg-theme-accent-dark { background-color: var(--ap-accent-dark) !important; }
+.dark .aviation-scope .bg-theme-header-dark { background-color: var(--color-header-dark) !important; }
 .dark .aviation-scope .text-theme-primary-dark { color: var(--ap-primary-dark) !important; }
+.dark .aviation-scope .text-theme-accent-dark { color: var(--ap-accent-dark) !important; }
+.dark .aviation-scope .text-theme-secondary-dark { color: var(--color-secondary-dark) !important; }
 .dark .aviation-scope .border-theme-accent-dark { border-color: var(--ap-border-dark) !important; }

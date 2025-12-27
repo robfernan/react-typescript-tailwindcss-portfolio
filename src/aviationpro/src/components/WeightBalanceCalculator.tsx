@@ -211,11 +211,11 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
     <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg shadow-lg border ${
       darkMode ? 'border-gray-700' : 'border-gray-200'
     }`}>
-      <div className={`${darkMode ? 'bg-gray-700' : 'bg-blue-50'} border-b ${
+      <div className={`${darkMode ? 'bg-gray-700' : 'bg-theme-header'} border-b ${
         darkMode ? 'border-gray-600' : 'border-gray-200'
       } p-6`}>
         <div className="flex items-center space-x-3 mb-4">
-          <Scale className={`w-6 h-6 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
+          <Scale className={`w-6 h-6 ${darkMode ? 'text-theme-accent-dark' : 'text-theme-accent'}`} />
           <h2 className="text-2xl font-bold">Weight and Balance Calculator</h2>
         </div>
         
@@ -369,7 +369,7 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
             <button
               onClick={addWeightItem}
               className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${
-                darkMode ? 'bg-blue-600 hover:bg-blue-500 text-white' : 'bg-blue-600 hover:bg-blue-700 text-white'
+                darkMode ? 'bg-theme-accent hover:bg-theme-header0 text-white' : 'bg-theme-accent hover:bg-blue-700 text-white'
               }`}
             >
               <Plus className="w-4 h-4 inline mr-1" />
@@ -587,13 +587,13 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
             <div className="space-y-3">
               <div className="flex justify-between">
                 <span className="font-medium">Ramp Weight:</span>
-                <span className={results.isWithinWeightLimit ? 'text-green-600' : 'text-red-600'}>
+                <span className={results.isWithinWeightLimit ? 'text-theme-accent' : 'text-red-600'}>
                   {results.rampWeight.toFixed(1)} lbs
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="font-medium">Ramp CG:</span>
-                <span className={results.isWithinCGLimit ? 'text-green-600' : 'text-red-600'}>
+                <span className={results.isWithinCGLimit ? 'text-theme-accent' : 'text-red-600'}>
                   {results.rampCG.toFixed(2)} in
                 </span>
               </div>
@@ -722,7 +722,7 @@ const WeightBalanceCalculator: React.FC<WeightBalanceCalculatorProps> = ({ darkM
                 <div>Remaining fuel after startup: {(results.fuelLbs - Number(aircraftData.startupDeduction)).toFixed(1)} lbs</div>
                 <div>Remaining fuel after flight: {(results.fuelLbs - Number(aircraftData.startupDeduction) - Number(aircraftData.burnedDeduction)).toFixed(1)} lbs</div>
                 <div className="mt-2 text-xs">
-                  <span className={results.fuelLbs - Number(aircraftData.startupDeduction) - Number(aircraftData.burnedDeduction) >= 0 ? 'text-green-600' : 'text-red-600'}>
+                  <span className={results.fuelLbs - Number(aircraftData.startupDeduction) - Number(aircraftData.burnedDeduction) >= 0 ? 'text-theme-accent' : 'text-red-600'}>
                     {results.fuelLbs - Number(aircraftData.startupDeduction) - Number(aircraftData.burnedDeduction) >= 0 ? '✓ Sufficient fuel' : '⚠️ Insufficient fuel'}
                   </span>
                 </div>

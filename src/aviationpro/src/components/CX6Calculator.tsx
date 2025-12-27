@@ -159,7 +159,7 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
     <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg shadow-lg border ${
       darkMode ? 'border-gray-700' : 'border-gray-200'
     }`}>
-      <div className={`${darkMode ? 'bg-gray-700' : 'bg-blue-50'} border-b ${
+      <div className={`${darkMode ? 'bg-gray-700' : 'bg-theme-header'} border-b ${
         darkMode ? 'border-gray-600' : 'border-gray-200'
       } p-6`}>
         <h2 className="text-2xl font-bold mb-4">CX-6 Flight Computer</h2>
@@ -173,8 +173,8 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                 className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   activeCalculator === calc.id
                     ? darkMode
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-blue-600 text-white'
+                      ? 'bg-theme-accent text-white'
+                      : 'bg-theme-accent text-white'
                     : darkMode
                       ? 'bg-gray-600 text-gray-300 hover:bg-gray-500'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -253,7 +253,7 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                 </div>
                 <button
                   onClick={calculateWindTriangle}
-                  className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                  className="w-full py-3 bg-theme-accent hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
                 >
                   Calculate Wind Triangle
                 </button>
@@ -329,7 +329,7 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                 </div>
                 <button
                   onClick={calculateTrueAirspeed}
-                  className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                  className="w-full py-3 bg-theme-accent hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
                 >
                   Calculate True Airspeed
                 </button>
@@ -337,7 +337,7 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
               <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
                 <h4 className="text-lg font-semibold mb-4">Result</h4>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">
+                  <div className="text-3xl font-bold text-theme-accent mb-2">
                     {tasCalculator.result} kts
                   </div>
                   <div className="text-sm opacity-75">True Airspeed</div>
@@ -418,7 +418,7 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                 </div>
                 <button
                   onClick={calculateTSD}
-                  className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                  className="w-full py-3 bg-theme-accent hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
                 >
                   Calculate
                 </button>
@@ -599,7 +599,7 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                 </div>
                 <button
                   onClick={calculateCrosswind}
-                  className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                  className="w-full py-3 bg-theme-accent hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
                 >
                   Calculate Crosswind
                 </button>
@@ -609,14 +609,14 @@ const CX6Calculator: React.FC<CX6CalculatorProps> = ({ darkMode }) => {
                 <div className="space-y-4">
                   <div className="flex justify-between">
                     <span className="font-medium">Crosswind Component:</span>
-                    <span className={`${crosswindCalculator.results.crosswindComponent > 15 ? 'text-red-600 font-bold' : crosswindCalculator.results.crosswindComponent > 10 ? 'text-orange-600' : 'text-green-600'}`}>
+                    <span className={`${crosswindCalculator.results.crosswindComponent > 15 ? 'text-red-600 font-bold' : crosswindCalculator.results.crosswindComponent > 10 ? 'text-orange-600' : 'text-theme-accent'}`}>
                       {crosswindCalculator.results.crosswindComponent} kts
                       {crosswindCalculator.results.crosswindDirection && ` (${crosswindCalculator.results.crosswindDirection})`}
                     </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="font-medium">Headwind Component:</span>
-                    <span className={crosswindCalculator.results.headwindComponent < 0 ? 'text-blue-600' : 'text-green-600'}>
+                    <span className={crosswindCalculator.results.headwindComponent < 0 ? 'text-theme-accent' : 'text-theme-accent'}>
                       {crosswindCalculator.results.headwindComponent} kts
                       {crosswindCalculator.results.headwindComponent < 0 ? ' (Tailwind)' : ' (Headwind)'}
                     </span>

@@ -75,11 +75,11 @@ const WeatherCalculator: React.FC<WeatherCalculatorProps> = ({ darkMode }) => {
     <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg shadow-lg border ${
       darkMode ? 'border-gray-700' : 'border-gray-200'
     }`}>
-      <div className={`${darkMode ? 'bg-gray-700' : 'bg-blue-50'} border-b ${
+      <div className={`${darkMode ? 'bg-gray-700' : 'bg-theme-header'} border-b ${
         darkMode ? 'border-gray-600' : 'border-gray-200'
       } p-6`}>
         <div className="flex items-center space-x-3 mb-4">
-          <Cloud className={`w-6 h-6 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
+          <Cloud className={`w-6 h-6 ${darkMode ? 'text-theme-accent-dark' : 'text-theme-accent'}`} />
           <h2 className="text-2xl font-bold">Weather Calculator</h2>
         </div>
         <p className="text-sm opacity-75">
@@ -94,7 +94,7 @@ const WeatherCalculator: React.FC<WeatherCalculatorProps> = ({ darkMode }) => {
             onClick={() => setActiveTool('density')}
             className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
               activeTool === 'density'
-                ? 'bg-white dark:bg-gray-600 text-blue-600 dark:text-blue-400 shadow-sm'
+                ? 'bg-white dark:bg-gray-600 text-theme-accent dark:text-theme-accent-dark shadow-sm'
                 : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
             }`}
           >
@@ -105,7 +105,7 @@ const WeatherCalculator: React.FC<WeatherCalculatorProps> = ({ darkMode }) => {
             onClick={() => setActiveTool('cloudbase')}
             className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
               activeTool === 'cloudbase'
-                ? 'bg-white dark:bg-gray-600 text-blue-600 dark:text-blue-400 shadow-sm'
+                ? 'bg-white dark:bg-gray-600 text-theme-accent dark:text-theme-accent-dark shadow-sm'
                 : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
             }`}
           >
@@ -192,7 +192,7 @@ const WeatherCalculator: React.FC<WeatherCalculatorProps> = ({ darkMode }) => {
                   <div className="space-y-4">
                     <div>
                       <div className="text-sm opacity-75 mb-1">Pressure Altitude</div>
-                      <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                      <div className="text-2xl font-bold text-theme-accent dark:text-theme-accent-dark">
                         {densityResults.pressureAltitude.toLocaleString()} ft
                       </div>
                     </div>
@@ -200,7 +200,7 @@ const WeatherCalculator: React.FC<WeatherCalculatorProps> = ({ darkMode }) => {
                     <div>
                       <div className="text-sm opacity-75 mb-1">ISA Temperature Deviation</div>
                       <div className={`text-lg font-semibold ${
-                        densityResults.isaDeviation > 0 ? 'text-red-600' : 'text-blue-600'
+                        densityResults.isaDeviation > 0 ? 'text-red-600' : 'text-theme-accent'
                       }`}>
                         {densityResults.isaDeviation > 0 ? '+' : ''}{densityResults.isaDeviation.toFixed(1)}°C
                       </div>
@@ -210,7 +210,7 @@ const WeatherCalculator: React.FC<WeatherCalculatorProps> = ({ darkMode }) => {
                   <div className="space-y-4">
                     <div>
                       <div className="text-sm opacity-75 mb-1">Density Altitude</div>
-                      <div className="text-3xl font-bold text-green-600 dark:text-green-400">
+                      <div className="text-3xl font-bold text-theme-accent dark:text-theme-accent-dark">
                         {densityResults.densityAltitude.toLocaleString()} ft
                       </div>
                     </div>
@@ -241,7 +241,7 @@ const WeatherCalculator: React.FC<WeatherCalculatorProps> = ({ darkMode }) => {
               )}
 
               {densityResults && !('error' in densityResults) && (
-                <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900 rounded-lg">
+                <div className="mt-6 p-4 bg-theme-header dark:bg-theme-header-dark rounded-lg">
                   <h5 className="font-medium mb-2 text-gray-900 dark:text-white">Performance Impact:</h5>
                   <div className="text-sm space-y-1 text-gray-700 dark:text-gray-100">
                     <div>• Higher density altitude reduces engine power and propeller efficiency</div>
@@ -320,7 +320,7 @@ const WeatherCalculator: React.FC<WeatherCalculatorProps> = ({ darkMode }) => {
               <h4 className="text-lg font-semibold mb-4">Cloud Base Result</h4>
               {cloudBaseResult !== null ? (
                 <div className="text-center">
-                  <div className={`text-3xl font-bold mb-2 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+                  <div className={`text-3xl font-bold mb-2 ${darkMode ? 'text-theme-accent-dark' : 'text-theme-accent'}`}>
                     {cloudBaseResult.toLocaleString()} ft
                   </div>
                   <div className="text-sm opacity-75">AGL Cloud Base</div>

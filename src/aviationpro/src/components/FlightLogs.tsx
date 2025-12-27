@@ -79,17 +79,17 @@ const FlightLogs: React.FC<FlightLogsProps> = ({ darkMode }) => {
     <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg shadow-lg border ${
       darkMode ? 'border-gray-700' : 'border-gray-200'
     }`}>
-      <div className={`${darkMode ? 'bg-gray-700' : 'bg-blue-50'} border-b ${
+      <div className={`${darkMode ? 'bg-gray-700' : 'bg-theme-header'} border-b ${
         darkMode ? 'border-gray-600' : 'border-gray-200'
       } p-6`}>
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <FileText className={`w-6 h-6 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
+            <FileText className={`w-6 h-6 ${darkMode ? 'text-theme-accent-dark' : 'text-theme-accent'}`} />
             <h2 className="text-2xl font-bold">Flight Logs</h2>
           </div>
           <div className="text-right">
             <div className="text-sm opacity-75">Total Flight Time</div>
-            <div className="text-xl font-bold text-blue-600 dark:text-blue-400">
+            <div className="text-xl font-bold text-theme-accent dark:text-theme-accent-dark">
               {formatFlightTime(totalFlightTime)} hrs
             </div>
           </div>
@@ -105,7 +105,7 @@ const FlightLogs: React.FC<FlightLogsProps> = ({ darkMode }) => {
           <button
             onClick={() => setIsAdding(!isAdding)}
             className={`px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center space-x-2 ${
-              darkMode ? 'bg-blue-600 hover:bg-blue-500 text-white' : 'bg-blue-600 hover:bg-blue-700 text-white'
+              darkMode ? 'bg-theme-accent hover:bg-theme-header0 text-white' : 'bg-theme-accent hover:bg-blue-700 text-white'
             }`}
           >
             <Plus className="w-4 h-4" />
@@ -193,7 +193,7 @@ const FlightLogs: React.FC<FlightLogsProps> = ({ darkMode }) => {
               </button>
               <button
                 onClick={addFlightLog}
-                className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md text-sm font-medium transition-colors"
+                className="px-4 py-2 bg-theme-accent hover:bg-green-700 text-white rounded-md text-sm font-medium transition-colors"
               >
                 Save Flight Log
               </button>
@@ -220,11 +220,11 @@ const FlightLogs: React.FC<FlightLogsProps> = ({ darkMode }) => {
                   <div className="flex-1">
                     <div className="flex items-center space-x-4 mb-2">
                       <div className="flex items-center space-x-2">
-                        <Calendar className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                        <Calendar className="w-4 h-4 text-theme-accent dark:text-theme-accent-dark" />
                         <span className="font-medium">{new Date(log.date).toLocaleDateString()}</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <Plane className="w-4 h-4 text-green-600 dark:text-green-400" />
+                        <Plane className="w-4 h-4 text-theme-accent dark:text-theme-accent-dark" />
                         <span className="font-medium">{log.aircraftNNumber}</span>
                       </div>
                       <div className="flex items-center space-x-2">
@@ -253,7 +253,7 @@ const FlightLogs: React.FC<FlightLogsProps> = ({ darkMode }) => {
         </div>
 
         {flightLogs.length > 0 && (
-          <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900 rounded-lg">
+          <div className="mt-6 p-4 bg-theme-header dark:bg-blue-900 rounded-lg">
             <h4 className="font-medium mb-2 text-gray-900 dark:text-white">Flight Summary</h4>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
               <div>

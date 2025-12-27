@@ -35,7 +35,7 @@ const CloudBaseCalculator: React.FC<CloudBaseCalculatorProps> = ({ darkMode }) =
       darkMode ? 'border-gray-700' : 'border-gray-200'
     } p-6`}>
       <div className="flex items-center space-x-3 mb-6">
-        <Cloud className={`w-6 h-6 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
+        <Cloud className={`w-6 h-6 ${darkMode ? 'text-theme-accent-dark' : 'text-theme-accent'}`} />
         <h2 className="text-xl font-bold">Cloud Base Calculator</h2>
       </div>
       
@@ -53,9 +53,9 @@ const CloudBaseCalculator: React.FC<CloudBaseCalculatorProps> = ({ darkMode }) =
               onChange={(e) => setTemperature(e.target.value)}
               className={`w-full p-3 border rounded-lg transition-colors ${
                 darkMode 
-                  ? 'bg-gray-700 border-gray-600 text-white focus:border-blue-400' 
-                  : 'bg-white border-gray-300 text-gray-900 focus:border-blue-500'
-              } focus:outline-none focus:ring-2 focus:ring-blue-500/20`}
+                  ? 'bg-gray-700 border-gray-600 text-white focus:border-theme-accent-dark' 
+                  : 'bg-white border-gray-300 text-gray-900 focus:border-theme-accent'
+              } focus:outline-none focus:ring-2 focus:ring-theme-accent/20`}
               placeholder="Enter temperature"
             />
           </div>
@@ -68,9 +68,9 @@ const CloudBaseCalculator: React.FC<CloudBaseCalculatorProps> = ({ darkMode }) =
               onChange={(e) => setDewPoint(e.target.value)}
               className={`w-full p-3 border rounded-lg transition-colors ${
                 darkMode 
-                  ? 'bg-gray-700 border-gray-600 text-white focus:border-blue-400' 
-                  : 'bg-white border-gray-300 text-gray-900 focus:border-blue-500'
-              } focus:outline-none focus:ring-2 focus:ring-blue-500/20`}
+                  ? 'bg-gray-700 border-gray-600 text-white focus:border-theme-accent-dark' 
+                  : 'bg-white border-gray-300 text-gray-900 focus:border-theme-accent'
+              } focus:outline-none focus:ring-2 focus:ring-theme-accent/20`}
               placeholder="Enter dew point"
             />
           </div>
@@ -78,7 +78,7 @@ const CloudBaseCalculator: React.FC<CloudBaseCalculatorProps> = ({ darkMode }) =
           <div className="flex space-x-3">
             <button
               onClick={calculateCloudBase}
-              className="flex-1 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-200"
+              className="flex-1 py-3 bg-theme-accent hover:bg-theme-accent text-white rounded-lg font-medium transition-colors duration-200"
             >
               Calculate
             </button>
@@ -95,11 +95,11 @@ const CloudBaseCalculator: React.FC<CloudBaseCalculatorProps> = ({ darkMode }) =
           </div>
         </div>
 
-        <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-blue-50'}`}>
+        <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-theme-header'}`}>
           <h3 className="text-lg font-semibold mb-4">Result</h3>
           {result !== null ? (
             <div className="text-center">
-              <div className={`text-3xl font-bold mb-2 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+              <div className={`text-3xl font-bold mb-2 ${darkMode ? 'text-theme-accent-dark' : 'text-theme-accent'}`}>
                 {result.toFixed(0)} ft
               </div>
               <div className="text-sm opacity-75">AGL Cloud Base</div>
