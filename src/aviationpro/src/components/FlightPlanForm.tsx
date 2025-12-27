@@ -414,9 +414,9 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
       {/* Header */}
       <div className={`${darkMode ? 'bg-theme-header-dark' : 'bg-theme-header'} border-b-2 ${
         darkMode ? 'border-theme-accent-dark' : 'border-theme-accent'
-      } p-6`}>
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-bold">FLIGHT PLAN</h2>
+      } p-3 sm:p-4 md:p-6`}>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-3 sm:mb-4 gap-3">
+          <h2 className="text-xl sm:text-2xl font-bold">FLIGHT PLAN</h2>
           <div className="flex space-x-2">
             <button 
               onClick={handlePrint}
@@ -425,7 +425,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                 ? 'bg-theme-card-dark hover:bg-gray-500 text-white' 
                 : 'bg-theme-card hover:bg-gray-50 text-gray-700'
             } border border-gray-300`}>
-              <Printer className="w-4 h-4" />
+              <Printer className="w-3 h-3 sm:w-4 sm:h-4" />
             </button>
             <button 
               onClick={handleDownload}
@@ -434,19 +434,19 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                 ? 'bg-theme-card-dark hover:bg-gray-500 text-white' 
                 : 'bg-theme-card hover:bg-gray-50 text-gray-700'
             } border border-gray-300`}>
-              <Download className="w-4 h-4" />
+              <Download className="w-3 h-3 sm:w-4 sm:h-4" />
             </button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           <div>
-            <label className="block text-sm font-medium mb-1">Aircraft Type</label>
+            <label className="block text-xs sm:text-sm font-medium mb-1">Aircraft Type</label>
             <input
               type="text"
               value={flightInfo.aircraft}
               onChange={(e) => setFlightInfo({...flightInfo, aircraft: e.target.value})}
-              className={`w-full p-2 border rounded-md ${
+              className={`w-full p-2 border rounded-md text-sm ${
                 darkMode 
                   ? 'bg-theme-card-dark border-gray-500 text-white' 
                   : 'bg-theme-card border-gray-300 text-gray-900'
@@ -455,12 +455,12 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-1">Tail Number</label>
+            <label className="block text-xs sm:text-sm font-medium mb-1">Tail Number</label>
             <input
               type="text"
               value={flightInfo.tailNumber}
               onChange={(e) => setFlightInfo({...flightInfo, tailNumber: e.target.value})}
-              className={`w-full p-2 border rounded-md ${
+              className={`w-full p-2 border rounded-md text-sm ${
                 darkMode 
                   ? 'bg-theme-card-dark border-gray-500 text-white' 
                   : 'bg-theme-card border-gray-300 text-gray-900'
@@ -469,12 +469,12 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-1">Pilot in Command</label>
+            <label className="block text-xs sm:text-sm font-medium mb-1">Pilot in Command</label>
             <input
               type="text"
               value={flightInfo.pilot}
               onChange={(e) => setFlightInfo({...flightInfo, pilot: e.target.value})}
-              className={`w-full p-2 border rounded-md ${
+              className={`w-full p-2 border rounded-md text-sm ${
                 darkMode 
                   ? 'bg-theme-card-dark border-gray-500 text-white' 
                   : 'bg-theme-card border-gray-300 text-gray-900'
@@ -483,12 +483,12 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-1">Fuel on Board (gal)</label>
+            <label className="block text-xs sm:text-sm font-medium mb-1">Fuel on Board (gal)</label>
             <input
               type="number"
               value={flightInfo.fuelOnBoard}
               onChange={(e) => setFlightInfo({...flightInfo, fuelOnBoard: e.target.value})}
-              className={`w-full p-2 border rounded-md ${
+              className={`w-full p-2 border rounded-md text-sm ${
                 darkMode 
                   ? 'bg-theme-card-dark border-gray-500 text-white' 
                   : 'bg-theme-card border-gray-300 text-gray-900'
@@ -514,8 +514,15 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
           </div>
         </div>
 
-        <div className="overflow-x-auto w-full -mx-2 sm:mx-0">
-          <table className="w-full border-collapse text-xs sm:text-sm min-w-[1400px] sm:min-w-[2000px] lg:min-w-[2800px] bg-theme-card dark:bg-theme-card-dark shadow-lg rounded-lg overflow-hidden">
+        {/* Mobile scroll hint */}
+        <div className="md:hidden mb-2 text-xs text-theme-secondary dark:text-theme-secondary-dark text-center bg-theme-accent/10 dark:bg-theme-accent-dark/10 py-2 rounded">
+          ← Scroll horizontally to see all fields →
+        </div>
+
+        <div className="relative">
+          <div className="overflow-x-auto w-full -webkit-overflow-scrolling-touch" style={{ overscrollBehaviorX: 'contain' }}>
+            <div className="inline-block min-w-full">
+              <table className="w-full border-collapse text-xs sm:text-sm min-w-[2400px] bg-theme-card dark:bg-theme-card-dark shadow-lg rounded-lg overflow-hidden">
             <thead>
               <tr className="bg-theme-accent dark:bg-theme-accent-dark text-white">
                 <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[120px]" rowSpan={2}>Checkpoint</th>
@@ -896,6 +903,8 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
               </tr>
             </tfoot>
           </table>
+            </div>
+          </div>
         </div>
 
         {/* Summary Section */}
