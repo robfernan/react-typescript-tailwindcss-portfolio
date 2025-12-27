@@ -107,14 +107,14 @@ function App() {
           : 'bg-white border-gray-200'
       }`}>
         <div className="w-full mx-auto px-2 sm:px-4">
-          <div className="flex space-x-1 overflow-x-auto scrollbar-hide">
+          <div className="flex space-x-1 overflow-x-auto scrollbar-hide pb-px">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               return (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center space-x-1 sm:space-x-2 px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-medium border-b-2 whitespace-nowrap transition-all duration-200 ${
+                  className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-medium border-b-2 whitespace-nowrap transition-all duration-200 min-w-[70px] sm:min-w-0 ${
                     activeTab === tab.id
                       ? darkMode
                         ? 'border-theme-accent-dark text-theme-accent-dark bg-gray-700'
@@ -124,8 +124,8 @@ function App() {
                         : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50'
                   }`}
                 >
-                  <Icon className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-                  <span className="hidden xs:inline">{tab.label}</span>
+                  <Icon className="w-4 h-4 flex-shrink-0" />
+                  <span className="text-[10px] sm:text-xs leading-tight text-center">{tab.label.split(' ')[0]}</span>
                 </button>
               );
             })}

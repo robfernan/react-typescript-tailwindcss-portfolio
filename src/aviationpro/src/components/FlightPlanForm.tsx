@@ -515,64 +515,68 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
         </div>
 
         {/* Mobile scroll hint */}
-        <div className="md:hidden mb-2 text-xs text-theme-secondary dark:text-theme-secondary-dark text-center bg-theme-accent/10 dark:bg-theme-accent-dark/10 py-2 rounded">
-          ← Scroll horizontally to see all fields →
+        <div className="lg:hidden mb-3 text-xs text-center py-2 px-3 rounded bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+          ← Swipe left/right to view all table columns →
         </div>
 
         <div className="relative">
-          <div className="overflow-x-auto w-full -webkit-overflow-scrolling-touch" style={{ overscrollBehaviorX: 'contain' }}>
+          {/* Scroll shadow indicators */}
+          <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-theme-bg dark:from-theme-bg-dark to-transparent pointer-events-none z-10 lg:hidden"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-theme-bg dark:from-theme-bg-dark to-transparent pointer-events-none z-10 lg:hidden"></div>
+          
+          <div className="overflow-x-auto overflow-y-visible w-full" style={{ WebkitOverflowScrolling: 'touch' }}>
             <div className="inline-block min-w-full">
               <table className="w-full border-collapse text-xs sm:text-sm min-w-[2400px] bg-theme-card dark:bg-theme-card-dark shadow-lg rounded-lg overflow-hidden">
             <thead>
               <tr className="bg-theme-accent dark:bg-theme-accent-dark text-white">
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[120px]" rowSpan={2}>Checkpoint</th>
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold" colSpan={2}>A Planned</th>
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold" colSpan={2}>Predicted Wind</th>
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">TEMP</th>
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">Plan<br/>TAS</th>
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">WCA<br/>-L +R</th>
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">True<br/>HDG</th>
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">Var<br/>-E +W</th>
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">Mag<br/>HDG</th>
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">Dev<br/>+-</th>
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">Compass<br/>HDG</th>
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold" colSpan={2}>Distance</th>
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">GS</th>
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold" colSpan={2}>Time</th>
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold" colSpan={2}>ETE/ATE</th>
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold" colSpan={2}>ETA/ATA</th>
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold" colSpan={2}>Fuel</th>
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold" colSpan={3}>VOR</th>
-                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">Actions</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold min-w-[100px] sm:min-w-[120px]" rowSpan={2}>Checkpoint</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold" colSpan={2}>A Planned</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold" colSpan={2}>Predicted Wind</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold min-w-[60px] sm:min-w-[80px]">TEMP</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold min-w-[60px] sm:min-w-[80px]">Plan<br/>TAS</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold min-w-[60px] sm:min-w-[80px]">WCA<br/>-L +R</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold min-w-[60px] sm:min-w-[80px]">True<br/>HDG</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold min-w-[60px] sm:min-w-[80px]">Var<br/>-E +W</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold min-w-[60px] sm:min-w-[80px]">Mag<br/>HDG</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold min-w-[60px] sm:min-w-[80px]">Dev<br/>+-</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold min-w-[60px] sm:min-w-[80px]">Compass<br/>HDG</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold" colSpan={2}>Distance</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold min-w-[60px] sm:min-w-[80px]">GS</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold" colSpan={2}>Time</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold" colSpan={2}>ETE/ATE</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold" colSpan={2}>ETA/ATA</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold" colSpan={2}>Fuel</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold" colSpan={3}>VOR</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold min-w-[60px] sm:min-w-[80px]">Actions</th>
               </tr>
               <tr className="bg-theme-accent/80 dark:bg-theme-accent-dark/80 text-white">
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">TC</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">ALT</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">DIR</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">VEL</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">°C</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">kts</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">Leg</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">Rem</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">kts</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">EST</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">ACT</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">ETE</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">ATE</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">ETA</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">ATA</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">Used</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">Rem</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">FREQ</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">RADIAL</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">ID</th>
-                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium"></th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">TC</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">ALT</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">DIR</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">VEL</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">°C</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">kts</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">°</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">°</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">°</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">°</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">°</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">°</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">Leg</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">Rem</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">kts</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">EST</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">ACT</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">ETE</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">ATE</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">ETA</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">ATA</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">Used</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">Rem</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">FREQ</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">RADIAL</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium min-w-[60px] sm:min-w-[80px]">ID</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 text-center text-[10px] sm:text-xs font-medium"></th>
               </tr>
             </thead>
             <tbody>
