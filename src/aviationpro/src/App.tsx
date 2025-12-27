@@ -20,12 +20,12 @@ function App() {
   }, [darkMode]);
 
   const tabs = [
-    { id: 'planner', label: 'Flight Planner', icon: Navigation },
-    { id: 'cx6', label: 'CX-6 Computer', icon: Calculator },
-    { id: 'weather', label: 'Weather Tools', icon: Wind },
-    { id: 'performance', label: 'Performance', icon: Plane },
-    { id: 'navigation', label: 'Navigation', icon: MapPin },
-    { id: 'logs', label: 'Flight Logs', icon: FileText }
+    { id: 'planner', label: 'Planner', fullLabel: 'Flight Planner', icon: Navigation },
+    { id: 'cx6', label: 'CX-6', fullLabel: 'CX-6 Computer', icon: Calculator },
+    { id: 'weather', label: 'Weather', fullLabel: 'Weather Tools', icon: Wind },
+    { id: 'performance', label: 'W&B', fullLabel: 'Performance', icon: Plane },
+    { id: 'navigation', label: 'Nav', fullLabel: 'Navigation', icon: MapPin },
+    { id: 'logs', label: 'Logs', fullLabel: 'Flight Logs', icon: FileText }
   ];
 
   const toggleDarkMode = () => {
@@ -107,14 +107,15 @@ function App() {
           : 'bg-white border-gray-200'
       }`}>
         <div className="w-full mx-auto px-2 sm:px-4">
-          <div className="flex space-x-1 overflow-x-auto scrollbar-hide pb-px">
+          <div className="flex justify-around sm:justify-start sm:space-x-1">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               return (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-medium border-b-2 whitespace-nowrap transition-all duration-200 min-w-[70px] sm:min-w-0 ${
+                  title={tab.fullLabel}
+                  className={`flex flex-col items-center justify-center gap-1 px-2 py-2 text-xs font-medium border-b-2 transition-all duration-200 flex-1 sm:flex-initial sm:min-w-[90px] ${
                     activeTab === tab.id
                       ? darkMode
                         ? 'border-theme-accent-dark text-theme-accent-dark bg-gray-700'
@@ -124,8 +125,8 @@ function App() {
                         : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50'
                   }`}
                 >
-                  <Icon className="w-4 h-4 flex-shrink-0" />
-                  <span className="text-[10px] sm:text-xs leading-tight text-center">{tab.label.split(' ')[0]}</span>
+                  <Icon className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                  <span className="text-[10px] sm:text-xs leading-tight text-center whitespace-nowrap">{tab.label}</span>
                 </button>
               );
             })}

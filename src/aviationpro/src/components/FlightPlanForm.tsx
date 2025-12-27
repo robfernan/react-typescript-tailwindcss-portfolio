@@ -37,6 +37,7 @@ interface FlightPlanFormProps {
 }
 
 const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
+  const [instructionsOpen, setInstructionsOpen] = useState(false);
   const [checkpoints, setCheckpoints] = useState<Checkpoint[]>([
     { 
       id: '1', 
@@ -584,78 +585,78 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                 <tr key={checkpoint.id} className={`hover:bg-theme-accent/10 dark:hover:bg-theme-accent-dark/10 transition-colors ${
                   index % 2 === 0 ? 'bg-theme-card dark:bg-theme-card-dark' : 'bg-theme-bg dark:bg-theme-bg-dark'
                 }`}>
-                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2">
                     <input
                       type="text"
                       value={checkpoint.name}
                       onChange={(e) => updateCheckpoint(checkpoint.id, 'name', e.target.value)}
-                      className={`w-full p-2 border-0 bg-transparent text-sm font-semibold focus:bg-theme-accent/10 dark:focus:bg-theme-accent-dark/10 focus:outline-none focus:ring-1 focus:ring-theme-accent dark:focus:ring-theme-accent-dark rounded transition-colors ${
+                      className={`w-full min-w-[80px] p-1 sm:p-2 border-0 bg-transparent text-xs sm:text-sm font-semibold focus:bg-theme-accent/10 dark:focus:bg-theme-accent-dark/10 focus:outline-none focus:ring-1 focus:ring-theme-accent dark:focus:ring-theme-accent-dark rounded transition-colors ${
                         darkMode ? 'text-white' : 'text-gray-900'
                       }`}
                     />
                   </td>
-                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 min-w-[70px]">
                     <input
                       type="number"
                       value={checkpoint.trueCourse}
                       onChange={(e) => updateCheckpoint(checkpoint.id, 'trueCourse', e.target.value)}
-                      className={`w-full p-2 border-0 bg-transparent text-center text-base ${
+                      className={`w-full p-1 sm:p-2 border-0 bg-transparent text-center text-xs sm:text-base ${
                         darkMode ? 'text-white' : 'text-gray-900'
                       }`}
                     />
                   </td>
-                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 min-w-[70px]">
                     <input
                       type="number"
                       value={checkpoint.altitude}
                       onChange={(e) => updateCheckpoint(checkpoint.id, 'altitude', e.target.value)}
-                      className={`w-full p-2 border-0 bg-transparent text-center text-base ${
+                      className={`w-full p-1 sm:p-2 border-0 bg-transparent text-center text-xs sm:text-base ${
                         darkMode ? 'text-white' : 'text-gray-900'
                       }`}
                     />
                   </td>
-                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 min-w-[70px]">
                     <input
                       type="number"
                       value={checkpoint.windDirection}
                       onChange={(e) => updateCheckpoint(checkpoint.id, 'windDirection', e.target.value)}
-                      className={`w-full p-2 border-0 bg-transparent text-center text-base ${
+                      className={`w-full p-1 sm:p-2 border-0 bg-transparent text-center text-xs sm:text-base ${
                         darkMode ? 'text-white' : 'text-gray-900'
                       }`}
                     />
                   </td>
-                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 min-w-[70px]">
                     <input
                       type="number"
                       value={checkpoint.windVelocity}
                       onChange={(e) => updateCheckpoint(checkpoint.id, 'windVelocity', e.target.value)}
-                      className={`w-full p-2 border-0 bg-transparent text-center text-base ${
+                      className={`w-full p-1 sm:p-2 border-0 bg-transparent text-center text-xs sm:text-base ${
                         darkMode ? 'text-white' : 'text-gray-900'
                       }`}
                     />
                   </td>
-                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 min-w-[70px]">
                     <input
                       type="number"
                       step="0.1"
                       value={checkpoint.temperature}
                       onChange={(e) => updateCheckpoint(checkpoint.id, 'temperature', e.target.value)}
-                      className={`w-full p-2 border-0 bg-transparent text-center text-base ${
+                      className={`w-full p-1 sm:p-2 border-0 bg-transparent text-center text-xs sm:text-base ${
                         darkMode ? 'text-white' : 'text-gray-900'
                       }`}
                     />
                   </td>
-                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 min-w-[70px]">
                     <input
                       type="number"
                       value={checkpoint.planTAS}
                       onChange={(e) => updateCheckpoint(checkpoint.id, 'planTAS', e.target.value)}
-                      className={`w-full p-2 border-0 bg-transparent text-center text-base ${
+                      className={`w-full p-1 sm:p-2 border-0 bg-transparent text-center text-xs sm:text-base ${
                         darkMode ? 'text-white' : 'text-gray-900'
                       }`}
                     />
                   </td>
-                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-1 sm:p-2 min-w-[70px]">
                     <input
                       type="number"
                       step="0.1"
@@ -967,10 +968,19 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
         </div>
 
         {/* Instructions Section */}
-        <div className={`mt-8 p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
-          <h4 className="font-semibold mb-6 text-xl text-center">Flight Planning Instructions</h4>
+        <div className={`mt-6 sm:mt-8 rounded-lg border ${darkMode ? 'bg-gray-700 border-gray-600' : 'bg-gray-100 border-gray-300'}`}>
+          <button
+            onClick={() => setInstructionsOpen(!instructionsOpen)}
+            className="w-full p-4 sm:p-6 flex items-center justify-between text-left"
+          >
+            <h4 className="font-semibold text-base sm:text-xl text-theme-primary dark:text-theme-primary-dark">Flight Planning Instructions</h4>
+            <span className="text-2xl">{instructionsOpen ? '−' : '+'}</span>
+          </button>
+          
+          {instructionsOpen && (
+            <div className="px-4 pb-4 sm:px-6 sm:pb-6">
 
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             <div className={`p-4 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'}`}>
               <h5 className="font-semibold mb-3 text-lg text-theme-primary dark:text-theme-primary-dark">1. Getting Started - Distance & Route Planning</h5>
               <div className="space-y-2 text-sm">
@@ -1113,6 +1123,8 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
               </div>
             </div>
           </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
