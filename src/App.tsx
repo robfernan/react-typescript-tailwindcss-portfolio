@@ -116,7 +116,7 @@ function AppWithDynamicName() {
 									<Route path="/art" element={<Art />} />
 									<Route path="/aviationpro/*" element={<AviationProApp darkMode={darkMode} toggleDarkMode={toggleDarkMode} />} />
 									<Route path="/streaming" element={<Streaming />} />
-									<Route path="/blog" element={<Blog />} />`
+									<Route path="/blog" element={<Blog />} />
 								</Routes>
 							</main>
 							<Footer theme={theme} />

@@ -247,25 +247,6 @@ export default function Projects() {
         />
       </div>
     );
-  // Modal state for gallery
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalProject, setModalProject] = useState<ProjectItem | null>(null);
-  const [modalImageIdx, setModalImageIdx] = useState(0);
-
-  // Helper to get all images for a project (main + extra)
-  function getProjectImages(item: ProjectItem, mapped?: string, slug?: string) {
-    const images: string[] = [];
-    if (item.images && item.images.length > 0) {
-      images.push(...item.images);
-    } else {
-      // fallback to mapped/slug
-      if (mapped) images.push(`/assets/projects/${mapped}`);
-      else if (slug) {
-        images.push(`/assets/projects/${slug}.png`, `/assets/projects/${slug}.jpg`);
-      }
-    }
-    return images;
-  }
   });
 
   const [searchTerm, setSearchTerm] = useState('');

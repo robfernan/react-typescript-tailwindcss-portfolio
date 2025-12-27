@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Calculator, Plane, Wind, MapPin, Route, FileText } from 'lucide-react';
+import { Calculator, Plane, Wind, MapPin, Navigation, FileText } from 'lucide-react';
 import FlightPlanForm from './src/components/FlightPlanForm';
 import WeatherCalculator from './src/components/WeatherCalculator';
 import WeightBalanceCalculator from './src/components/WeightBalanceCalculator';
@@ -16,7 +16,7 @@ function AviationProApp({ darkMode = false, toggleDarkMode }: AviationProAppProp
   const [activeTab, setActiveTab] = useState('planner');
 
   const tabs = [
-    { id: 'planner', label: 'Flight Planner', icon: Route },
+    { id: 'planner', label: 'Flight Planner', icon: Navigation },
     { id: 'cx6', label: 'CX-6 Computer', icon: Calculator },
     { id: 'weather', label: 'Weather Tools', icon: Wind },
     { id: 'performance', label: 'Performance', icon: Plane },

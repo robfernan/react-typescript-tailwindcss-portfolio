@@ -1,6 +1,6 @@
 # Portfolio (Robert Fernandez)
 
-This repository contains a personal portfolio website and related project sources maintained by Robert Fernandez. The site showcases game development, tools, and projects built with frameworks like SFML, Love2D, and modern web tooling. It also contains a nested project, `src/aviationpro`, which is an airplane utility app included as a regular directory.
+This repository contains a personal portfolio website built in React/TypeScript/TailwindCSS. The site showcases game development, tools, and projects built with frameworks like SFML, Love2D, and modern web tooling. It also contains a nested project, `src/aviationpro`, which is an airplane utility app included as a regular directory.
 
 ## Main Pages & Features
 

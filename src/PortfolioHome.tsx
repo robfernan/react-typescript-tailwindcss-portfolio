@@ -1,4 +1,6 @@
 import React from 'react';
+import Layout from './components/layout/Layout';
+import { Link } from 'react-router-dom';
 
 // Timeline data
 const timelineData = [
@@ -32,8 +34,7 @@ const timelineData = [
   { title: "Defold Music Player", date: "Sep 3 2025", description: "Released a Defold-based music player demo showcasing UI and playback features." },
   { title: "AviationPro Launch", date: "Sep 7 2025", description: "Released AviationPro on Sept 7, 2025 — a professional-grade flight planning suite for pilots and enthusiasts." },
 ];
-import Layout from './components/layout/Layout';
-import { Link } from 'react-router-dom';
+
 // Dummy Card and Button if originals are missing
 const Card: React.FC<React.PropsWithChildren<{}>> = ({ children }) => (
   <div className="rounded-lg border p-4 shadow-md bg-theme-bg dark:bg-theme-bg-dark">{children}</div>
