@@ -37,34 +37,34 @@ const timelineData = [
 
 // Dummy Card and Button if originals are missing
 const Card: React.FC<React.PropsWithChildren<{}>> = ({ children }) => (
-  <div className="rounded-lg border p-4 shadow-md bg-theme-bg dark:bg-theme-bg-dark">{children}</div>
+  <div className="rounded-lg border p-3 sm:p-4 shadow-md bg-theme-bg dark:bg-theme-bg-dark">{children}</div>
 );
 const Button: React.FC<React.PropsWithChildren<React.ButtonHTMLAttributes<HTMLButtonElement>>> = ({ children, ...props }) => (
-  <button className="px-4 py-2 rounded bg-theme-accent text-white" {...props}>{children}</button>
+  <button className="px-3 sm:px-4 py-2 rounded bg-theme-accent text-white text-sm sm:text-base hover:bg-theme-accent/90 transition-colors" {...props}>{children}</button>
 );
 
 export default function PortfolioHome() {
   return (
     <Layout>
-      <section className="max-w-5xl mx-auto py-16 px-4">
+      <section className="max-w-5xl mx-auto py-8 sm:py-12 md:py-16 px-4">
         {/* Hero/About Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mb-12">
-          <div className="md:col-span-2">
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-3 text-theme-primary dark:text-theme-primary-dark">Robert Fernandez</h1>
-            <h2 className="text-xl md:text-2xl font-semibold mb-4 text-theme-accent dark:text-theme-accent-dark">About Me</h2>
-            <p className="mb-3 text-base md:text-lg text-theme-secondary dark:text-theme-secondary-dark leading-relaxed">
-              I’m a passionate developer with expertise in SFML and Love2D, constantly exploring new ways to bring my ideas to life through code and design. Whether it’s creating immersive games or building digital art, I strive to blend creativity and functionality in everything I do.
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 items-start mb-8 md:mb-12">
+          <div className="lg:col-span-2">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-2 sm:mb-3 text-theme-primary dark:text-theme-primary-dark">Robert Fernandez</h1>
+            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mb-3 sm:mb-4 text-theme-accent dark:text-theme-accent-dark">About Me</h2>
+            <p className="mb-3 text-sm sm:text-base md:text-lg text-theme-secondary dark:text-theme-secondary-dark leading-relaxed">
+              I'm a passionate developer with expertise in SFML and Love2D, constantly exploring new ways to bring my ideas to life through code and design. Whether it's creating immersive games or building digital art, I strive to blend creativity and functionality in everything I do.
             </p>
-            <p className="mb-3 text-base md:text-lg text-theme-secondary dark:text-theme-secondary-dark leading-relaxed">
-              Beyond the screen, I embrace adventure in real life as well—I’m a private pilot in training, a certified scuba diver, an avid fisherman, and a hunter. My love for exploration extends into my hobbies, which include playing adventure, survival, and horror games.
+            <p className="mb-3 text-sm sm:text-base md:text-lg text-theme-secondary dark:text-theme-secondary-dark leading-relaxed">
+              Beyond the screen, I embrace adventure in real life as well—I'm a private pilot in training, a certified scuba diver, an avid fisherman, and a hunter. My love for exploration extends into my hobbies, which include playing adventure, survival, and horror games.
             </p>
             {/* Featured Work Card inserted here so it appears directly after the intro */}
-            <div className="mt-4 grid grid-cols-1 gap-6">
+            <div className="mt-4 grid grid-cols-1 gap-4 sm:gap-6">
               <Card>
                 <div className="flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xl font-bold mb-2 text-theme-primary dark:text-theme-primary-dark">AviationPro</h3>
-                    <p className="mb-4 text-theme-secondary dark:text-theme-secondary-dark">A professional-grade flight planning suite for pilots and enthusiasts.</p>
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 text-theme-primary dark:text-theme-primary-dark">AviationPro</h3>
+                    <p className="mb-4 text-sm sm:text-base text-theme-secondary dark:text-theme-secondary-dark">A professional-grade flight planning suite for pilots and enthusiasts.</p>
                   </div>
                   <div>
                     <Link to="/aviationpro"><Button>View AviationPro</Button></Link>
@@ -74,12 +74,12 @@ export default function PortfolioHome() {
               <Card>
                 <div className="flex flex-col justify-between">
                   <div>
-                    <div className="mb-4">
+                    <div className="mb-4 overflow-hidden">
                       <iframe
                         frameBorder="0"
                         src="https://itch.io/embed/3836499?linkback=true"
-                        width="552"
-                        height="167"
+                        className="w-full max-w-full"
+                        style={{ maxWidth: '552px', height: '167px' }}
                         title="Hopeless Catch on itch.io"
                       >
                         <a href="https://mungdaal321.itch.io/hopeless-catch">Hopeless Catch by MungDaal321</a>
@@ -91,36 +91,36 @@ export default function PortfolioHome() {
             </div>
           </div>
           {/* Right column: thumbnails / highlights */}
-          <aside className="md:col-span-1 flex flex-col gap-4">
-            <figure className="overflow-hidden rounded-lg border border-theme-accent dark:border-theme-accent-dark shadow-sm">
-              <img loading="lazy" decoding="async" src="/car-art.jpg" alt="Car Art" className="w-full h-44 object-cover" />
+          <aside className="lg:col-span-1 flex flex-row lg:flex-col gap-3 sm:gap-4 overflow-x-auto lg:overflow-x-visible scrollbar-hide">
+            <figure className="flex-shrink-0 w-48 sm:w-56 lg:w-full overflow-hidden rounded-lg border border-theme-accent dark:border-theme-accent-dark shadow-sm">
+              <img loading="lazy" decoding="async" src="/car-art.jpg" alt="Car Art" className="w-full h-32 sm:h-44 object-cover" />
             </figure>
-            <figure className="overflow-hidden rounded-lg border border-theme-accent dark:border-theme-accent-dark shadow-sm">
-              <img loading="lazy" decoding="async" src="/love2d_music_player.png" alt="Music Player" className="w-full h-44 object-cover" />
+            <figure className="flex-shrink-0 w-48 sm:w-56 lg:w-full overflow-hidden rounded-lg border border-theme-accent dark:border-theme-accent-dark shadow-sm">
+              <img loading="lazy" decoding="async" src="/love2d_music_player.png" alt="Music Player" className="w-full h-32 sm:h-44 object-cover" />
             </figure>
-            <figure className="overflow-hidden rounded-lg border border-theme-accent dark:border-theme-accent-dark shadow-sm">
-              <img loading="lazy" decoding="async" src="/comic_book_reader_sfml.png" alt="Comic Reader" className="w-full h-44 object-cover" />
+            <figure className="flex-shrink-0 w-48 sm:w-56 lg:w-full overflow-hidden rounded-lg border border-theme-accent dark:border-theme-accent-dark shadow-sm">
+              <img loading="lazy" decoding="async" src="/comic_book_reader_sfml.png" alt="Comic Reader" className="w-full h-32 sm:h-44 object-cover" />
             </figure>
           </aside>
         </div>
 
         {/* Timeline Section */}
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold mb-8 text-theme-primary dark:text-theme-primary-dark text-center">My Journey</h2>
-          <ol className="relative border-l-4 border-theme-accent dark:border-theme-accent-dark max-w-5xl mx-auto pl-12">
+        <div className="mt-12 sm:mt-16">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-theme-primary dark:text-theme-primary-dark text-center">My Journey</h2>
+          <ol className="relative border-l-2 sm:border-l-4 border-theme-accent dark:border-theme-accent-dark max-w-5xl mx-auto pl-6 sm:pl-8 md:pl-12">
             {timelineData.map((item, idx) => (
-              <li key={idx} className="mb-10 relative">
-                <span className="absolute -left-6 top-0 flex items-center justify-center w-10 h-10 bg-theme-action dark:bg-theme-action-dark rounded-full ring-4 ring-theme-bg dark:ring-theme-bg-dark z-10" style={{transform: 'translateY(0.25rem)'}}>
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 12H9v-2h2v2zm0-4H9V6h2v4z" /></svg>
+              <li key={idx} className="mb-8 sm:mb-10 relative">
+                <span className="absolute -left-4 sm:-left-5 md:-left-6 top-0 flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-theme-action dark:bg-theme-action-dark rounded-full ring-2 sm:ring-4 ring-theme-bg dark:ring-theme-bg-dark z-10" style={{transform: 'translateY(0.25rem)'}}>
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 12H9v-2h2v2zm0-4H9V6h2v4z" /></svg>
                 </span>
-                <div className="pl-8">
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
-                    <h3 className="text-lg font-semibold text-theme-primary dark:text-theme-primary-dark">{item.title}</h3>
-                    <span className="bg-theme-accent dark:bg-theme-accent-dark text-white text-xs font-medium px-2.5 py-0.5 rounded self-start">{item.date}</span>
+                <div className="pl-4 sm:pl-6 md:pl-8">
+                  <div className="flex flex-col gap-1 sm:gap-2 mb-2">
+                    <h3 className="text-base sm:text-lg font-semibold text-theme-primary dark:text-theme-primary-dark">{item.title}</h3>
+                    <span className="bg-theme-accent dark:bg-theme-accent-dark text-white text-xs font-medium px-2 py-0.5 rounded self-start">{item.date}</span>
                   </div>
-                  <p className="text-theme-secondary dark:text-theme-secondary-dark whitespace-pre-line">{item.description}</p>
+                  <p className="text-sm sm:text-base text-theme-secondary dark:text-theme-secondary-dark whitespace-pre-line">{item.description}</p>
                   {item.link && (
-                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-theme-accent dark:text-theme-accent-dark font-medium underline ml-1">Play it on itch.io</a>
+                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-sm sm:text-base text-theme-accent dark:text-theme-accent-dark font-medium underline ml-1">Play it on itch.io</a>
                   )}
                 </div>
               </li>
@@ -131,8 +131,3 @@ export default function PortfolioHome() {
     </Layout>
   );
 }
-
-
-
-
-
