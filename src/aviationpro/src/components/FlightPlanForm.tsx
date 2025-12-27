@@ -408,12 +408,12 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
   };
 
   return (
-    <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg shadow-lg border-2 ${
-      darkMode ? 'border-blue-400' : 'border-blue-600'
+    <div className={`${darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'} rounded-lg shadow-lg border-2 ${
+      darkMode ? 'border-theme-accent-dark' : 'border-theme-accent'
     }`}>
       {/* Header */}
-      <div className={`${darkMode ? 'bg-gray-700' : 'bg-blue-50'} border-b-2 ${
-        darkMode ? 'border-blue-400' : 'border-blue-600'
+      <div className={`${darkMode ? 'bg-theme-header-dark' : 'bg-theme-header'} border-b-2 ${
+        darkMode ? 'border-theme-accent-dark' : 'border-theme-accent'
       } p-6`}>
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-2xl font-bold">FLIGHT PLAN</h2>
@@ -422,8 +422,8 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
               onClick={handlePrint}
               className={`p-2 rounded-lg transition-colors ${
               darkMode 
-                ? 'bg-gray-600 hover:bg-gray-500 text-white' 
-                : 'bg-white hover:bg-gray-50 text-gray-700'
+                ? 'bg-theme-card-dark hover:bg-gray-500 text-white' 
+                : 'bg-theme-card hover:bg-gray-50 text-gray-700'
             } border border-gray-300`}>
               <Printer className="w-4 h-4" />
             </button>
@@ -431,8 +431,8 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
               onClick={handleDownload}
               className={`p-2 rounded-lg transition-colors ${
               darkMode 
-                ? 'bg-gray-600 hover:bg-gray-500 text-white' 
-                : 'bg-white hover:bg-gray-50 text-gray-700'
+                ? 'bg-theme-card-dark hover:bg-gray-500 text-white' 
+                : 'bg-theme-card hover:bg-gray-50 text-gray-700'
             } border border-gray-300`}>
               <Download className="w-4 h-4" />
             </button>
@@ -448,8 +448,8 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
               onChange={(e) => setFlightInfo({...flightInfo, aircraft: e.target.value})}
               className={`w-full p-2 border rounded-md ${
                 darkMode 
-                  ? 'bg-gray-600 border-gray-500 text-white' 
-                  : 'bg-white border-gray-300 text-gray-900'
+                  ? 'bg-theme-card-dark border-gray-500 text-white' 
+                  : 'bg-theme-card border-gray-300 text-gray-900'
               }`}
               placeholder="C172, PA28, etc."
             />
@@ -462,8 +462,8 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
               onChange={(e) => setFlightInfo({...flightInfo, tailNumber: e.target.value})}
               className={`w-full p-2 border rounded-md ${
                 darkMode 
-                  ? 'bg-gray-600 border-gray-500 text-white' 
-                  : 'bg-white border-gray-300 text-gray-900'
+                  ? 'bg-theme-card-dark border-gray-500 text-white' 
+                  : 'bg-theme-card border-gray-300 text-gray-900'
               }`}
               placeholder="N12345"
             />
@@ -476,8 +476,8 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
               onChange={(e) => setFlightInfo({...flightInfo, pilot: e.target.value})}
               className={`w-full p-2 border rounded-md ${
                 darkMode 
-                  ? 'bg-gray-600 border-gray-500 text-white' 
-                  : 'bg-white border-gray-300 text-gray-900'
+                  ? 'bg-theme-card-dark border-gray-500 text-white' 
+                  : 'bg-theme-card border-gray-300 text-gray-900'
               }`}
               placeholder="Pilot Name"
             />
@@ -490,8 +490,8 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
               onChange={(e) => setFlightInfo({...flightInfo, fuelOnBoard: e.target.value})}
               className={`w-full p-2 border rounded-md ${
                 darkMode 
-                  ? 'bg-gray-600 border-gray-500 text-white' 
-                  : 'bg-white border-gray-300 text-gray-900'
+                  ? 'bg-theme-card-dark border-gray-500 text-white' 
+                  : 'bg-theme-card border-gray-300 text-gray-900'
               }`}
               placeholder="40"
             />
@@ -502,15 +502,11 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
       {/* Checkpoints Table */}
       <div className="p-6">
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-bold text-blue-600 dark:text-blue-400">Route Planning</h3>
+          <h3 className="text-xl font-bold text-theme-primary dark:text-theme-primary-dark">Route Planning</h3>
           <div className="space-x-2">
             <button
               onClick={addCheckpoint}
-              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 transform hover:scale-105 shadow-md hover:shadow-lg ${
-                darkMode 
-                  ? 'bg-blue-600 hover:bg-blue-500 text-white' 
-                  : 'bg-blue-600 hover:bg-blue-700 text-white'
-              }`}
+              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 transform hover:scale-105 shadow-md hover:shadow-lg bg-theme-accent hover:bg-theme-accent/80 dark:bg-theme-accent-dark dark:hover:bg-theme-accent-dark/80 text-white`}
             >
               <Plus className="w-4 h-4 inline mr-2" />
               Add Checkpoint
@@ -519,77 +515,75 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
         </div>
 
         <div className="overflow-x-auto w-full">
-          <table className="w-full border-collapse border border-gray-300 text-sm min-w-[2800px]">
+          <table className="w-full border-collapse text-sm min-w-[2800px] bg-theme-card dark:bg-theme-card-dark shadow-lg rounded-lg overflow-hidden">
             <thead>
-              <tr className={`${darkMode ? 'bg-gray-700' : 'bg-blue-50'}`}>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[120px]" rowSpan={2}>Checkpoint</th>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold" colSpan={2}>A Planned</th>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold" colSpan={2}>Predicted Wind</th>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">TEMP</th>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">Plan<br/>TAS</th>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">WCA<br/>-L +R</th>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">True<br/>HDG</th>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">Var<br/>-E +W</th>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">Mag<br/>HDG</th>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">Dev<br/>+-</th>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">Compass<br/>HDG</th>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold" colSpan={2}>Distance</th>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">GS</th>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold" colSpan={2}>Time</th>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold" colSpan={2}>ETE/ATE</th>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold" colSpan={2}>ETA/ATA</th>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold" colSpan={2}>Fuel</th>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold" colSpan={3}>VOR</th>
-                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">Actions</th>
+              <tr className="bg-theme-accent dark:bg-theme-accent-dark text-white">
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[120px]" rowSpan={2}>Checkpoint</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold" colSpan={2}>A Planned</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold" colSpan={2}>Predicted Wind</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">TEMP</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">Plan<br/>TAS</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">WCA<br/>-L +R</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">True<br/>HDG</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">Var<br/>-E +W</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">Mag<br/>HDG</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">Dev<br/>+-</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">Compass<br/>HDG</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold" colSpan={2}>Distance</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">GS</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold" colSpan={2}>Time</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold" colSpan={2}>ETE/ATE</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold" colSpan={2}>ETA/ATA</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold" colSpan={2}>Fuel</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold" colSpan={3}>VOR</th>
+                <th className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-semibold min-w-[80px]">Actions</th>
               </tr>
-              <tr className={`${darkMode ? 'bg-gray-600' : 'bg-blue-100'}`}>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">TC</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">ALT</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">DIR</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">VEL</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">°C</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">kts</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">Leg</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">Rem</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">kts</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">EST</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">ACT</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">ETE</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">ATE</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">ETA</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">ATA</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">Used</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">Rem</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">FREQ</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">RADIAL</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">ID</th>
-                <th className="border border-gray-300 p-2 text-center text-xs font-medium"></th>
+              <tr className="bg-theme-accent/80 dark:bg-theme-accent-dark/80 text-white">
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">TC</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">ALT</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">DIR</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">VEL</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">°C</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">kts</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">Leg</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">Rem</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">kts</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">EST</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">ACT</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">ETE</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">ATE</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">ETA</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">ATA</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">Used</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">Rem</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">FREQ</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">RADIAL</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium min-w-[80px]">ID</th>
+                <th className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 text-center text-xs font-medium"></th>
               </tr>
             </thead>
             <tbody>
               {checkpoints.map((checkpoint, index) => (
-                <tr key={checkpoint.id} className={`hover:bg-blue-50 dark:hover:bg-gray-600 transition-colors ${
-                  index % 2 === 0 ? 
-                  (darkMode ? 'bg-gray-800' : 'bg-white') : 
-                  (darkMode ? 'bg-gray-750' : 'bg-gray-50')
+                <tr key={checkpoint.id} className={`hover:bg-theme-accent/10 dark:hover:bg-theme-accent-dark/10 transition-colors ${
+                  index % 2 === 0 ? 'bg-theme-card dark:bg-theme-card-dark' : 'bg-theme-bg dark:bg-theme-bg-dark'
                 }`}>
-                  <td className="border border-gray-300 p-2">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2">
                     <input
                       type="text"
                       value={checkpoint.name}
                       onChange={(e) => updateCheckpoint(checkpoint.id, 'name', e.target.value)}
-                      className={`w-full p-2 border-0 bg-transparent text-sm font-semibold focus:bg-blue-50 dark:focus:bg-gray-700 rounded transition-colors ${
+                      className={`w-full p-2 border-0 bg-transparent text-sm font-semibold focus:bg-theme-accent/10 dark:focus:bg-theme-accent-dark/10 focus:outline-none focus:ring-1 focus:ring-theme-accent dark:focus:ring-theme-accent-dark rounded transition-colors ${
                         darkMode ? 'text-white' : 'text-gray-900'
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       value={checkpoint.trueCourse}
@@ -599,7 +593,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       value={checkpoint.altitude}
@@ -609,7 +603,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       value={checkpoint.windDirection}
@@ -619,7 +613,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       value={checkpoint.windVelocity}
@@ -629,7 +623,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       step="0.1"
@@ -640,7 +634,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       value={checkpoint.planTAS}
@@ -650,7 +644,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       step="0.1"
@@ -661,7 +655,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       step="0.1"
@@ -672,7 +666,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       step="0.1"
@@ -683,7 +677,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       step="0.1"
@@ -694,7 +688,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       step="0.1"
@@ -705,7 +699,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       step="0.1"
@@ -716,7 +710,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       step="0.1"
@@ -727,7 +721,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       step="0.1"
@@ -738,7 +732,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       value={checkpoint.groundSpeed}
@@ -748,7 +742,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[120px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[120px]">
                     <input
                       type="text"
                       value={checkpoint.est}
@@ -759,7 +753,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       placeholder="HH:MM"
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[120px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[120px]">
                     <input
                       type="text"
                       value={checkpoint.act}
@@ -770,7 +764,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       placeholder="HH:MM"
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       step="0.1"
@@ -781,7 +775,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       step="0.1"
@@ -792,7 +786,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[120px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[120px]">
                     <input
                       type="text"
                       value={checkpoint.eta}
@@ -803,7 +797,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       placeholder="HH:MM"
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[120px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[120px]">
                     <input
                       type="text"
                       value={checkpoint.ata}
@@ -814,7 +808,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       placeholder="HH:MM"
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       step="0.1"
@@ -825,7 +819,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="number"
                       step="0.1"
@@ -836,7 +830,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       }`}
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[120px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[120px]">
                     <input
                       type="text"
                       value={checkpoint.vorFreq}
@@ -847,7 +841,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       placeholder="113.00"
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[120px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[120px]">
                     <input
                       type="text"
                       value={checkpoint.vorRadial}
@@ -858,7 +852,7 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
                       placeholder="090"
                     />
                   </td>
-                  <td className="border border-gray-300 p-4 min-w-[100px]">
+                  <td className="border border-theme-accent/20 dark:border-theme-accent-dark/20 p-2 min-w-[100px]">
                     <input
                       type="text"
                       value={checkpoint.vorIdent}
@@ -883,75 +877,75 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
               ))}
             </tbody>
             <tfoot>
-              <tr className={`${darkMode ? 'bg-gray-700' : 'bg-gray-100'} font-semibold`}>
-                <td className="border border-gray-300 p-4 text-center text-base font-medium" colSpan={15}>TOTALS</td>
-                <td className="border border-gray-300 p-4 text-center text-base">{totalDistance.toFixed(1)} nm</td>
-                <td className="border border-gray-300 p-4"></td>
-                <td className="border border-gray-300 p-4"></td>
-                <td className="border border-gray-300 p-4"></td>
-                <td className="border border-gray-300 p-4"></td>
-                <td className="border border-gray-300 p-4"></td>
-                <td className="border border-gray-300 p-4 text-center text-base">{Math.floor(totalETE / 60)}h {totalETE % 60}m</td>
-                <td className="border border-gray-300 p-4"></td>
-                <td className="border border-gray-300 p-4"></td>
-                <td className="border border-gray-300 p-4"></td>
-                <td className="border border-gray-300 p-4 text-center text-base">{totalFuelUsed.toFixed(1)} gal</td>
-                <td className="border border-gray-300 p-4"></td>
-                <td className="border border-gray-300 p-4"></td>
-                <td className="border border-gray-300 p-4"></td>
+              <tr className="bg-theme-accent dark:bg-theme-accent-dark text-white font-bold">
+                <td className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-bold" colSpan={15}>TOTALS</td>
+                <td className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-bold">{totalDistance.toFixed(1)} nm</td>
+                <td className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3"></td>
+                <td className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3"></td>
+                <td className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3"></td>
+                <td className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3"></td>
+                <td className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3"></td>
+                <td className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-bold">{Math.floor(totalETE / 60)}h {totalETE % 60}m</td>
+                <td className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3"></td>
+                <td className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3"></td>
+                <td className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3"></td>
+                <td className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3 text-center text-sm font-bold">{totalFuelUsed.toFixed(1)} gal</td>
+                <td className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3"></td>
+                <td className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3"></td>
+                <td className="border border-theme-accent/30 dark:border-theme-accent-dark/30 p-3"></td>
               </tr>
             </tfoot>
           </table>
         </div>
 
         {/* Summary Section */}
-        <div className={`mt-8 p-6 rounded-xl shadow-lg ${darkMode ? 'bg-gray-700 border border-gray-600' : 'bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200'}`}>
-          <h4 className="font-bold mb-6 text-xl text-blue-600 dark:text-blue-400">Flight Summary</h4>
+        <div className={`mt-8 p-6 rounded-xl shadow-lg ${darkMode ? 'bg-theme-card-dark border border-theme-accent-dark' : 'bg-theme-card border border-theme-accent'}`}>
+          <h4 className="font-bold mb-6 text-xl text-theme-primary dark:text-theme-primary-dark">Flight Summary</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
-            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-gray-600 border-gray-500' : 'bg-white border-gray-200'}`}>
-              <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Total Distance</div>
-              <div className="text-lg font-bold text-blue-600 dark:text-blue-400">{totalDistance.toFixed(1)} nm</div>
+            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-theme-card-dark border-theme-accent-dark' : 'bg-theme-card border-theme-accent'}`}>
+              <div className="text-xs text-theme-secondary dark:text-theme-secondary-dark uppercase tracking-wide">Total Distance</div>
+              <div className="text-lg font-bold text-theme-accent dark:text-theme-accent-dark">{totalDistance.toFixed(1)} nm</div>
             </div>
-            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-gray-600 border-gray-500' : 'bg-white border-gray-200'}`}>
+            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-theme-card-dark border-gray-500' : 'bg-theme-card border-gray-200'}`}>
               <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Total Flight Time</div>
-              <div className="text-lg font-bold text-green-600 dark:text-green-400">{Math.floor(totalETE / 60)}h {(totalETE % 60).toFixed(0)}m</div>
+              <div className="text-lg font-bold text-theme-accent dark:text-theme-accent-dark">{Math.floor(totalETE / 60)}h {(totalETE % 60).toFixed(0)}m</div>
             </div>
-            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-gray-600 border-gray-500' : 'bg-white border-gray-200'}`}>
+            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-theme-card-dark border-gray-500' : 'bg-theme-card border-gray-200'}`}>
               <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Total Fuel Required</div>
-              <div className="text-lg font-bold text-orange-600 dark:text-orange-400">{totalFuelUsed.toFixed(1)} gal</div>
+              <div className="text-lg font-bold text-theme-accent dark:text-theme-accent-dark">{totalFuelUsed.toFixed(1)} gal</div>
             </div>
-            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-gray-600 border-gray-500' : 'bg-white border-gray-200'}`}>
+            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-theme-card-dark border-gray-500' : 'bg-theme-card border-gray-200'}`}>
               <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Fuel on Board</div>
-              <div className="text-lg font-bold text-purple-600 dark:text-purple-400">{flightInfo.fuelOnBoard || '---'} gal</div>
+              <div className="text-lg font-bold text-theme-accent dark:text-theme-accent-dark">{flightInfo.fuelOnBoard || '---'} gal</div>
             </div>
-            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-gray-600 border-gray-500' : 'bg-white border-gray-200'}`}>
+            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-theme-card-dark border-gray-500' : 'bg-theme-card border-gray-200'}`}>
               <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Fuel Reserve</div>
               <div className={`text-lg font-bold ${
                 flightInfo.fuelOnBoard && (parseFloat(flightInfo.fuelOnBoard) - totalFuelUsed) < 10 
                   ? 'text-red-600 dark:text-red-400' 
-                  : 'text-green-600 dark:text-green-400'
+                  : 'text-theme-accent dark:text-theme-accent-dark'
               }`}>
                 {flightInfo.fuelOnBoard ? 
                 Math.max(0, parseFloat(flightInfo.fuelOnBoard) - totalFuelUsed).toFixed(1) : '---'} gal
               </div>
             </div>
-            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-gray-600 border-gray-500' : 'bg-white border-gray-200'}`}>
+            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-theme-card-dark border-gray-500' : 'bg-theme-card border-gray-200'}`}>
               <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Reserve Time</div>
-              <div className="text-lg font-bold text-indigo-600 dark:text-indigo-400">{
+              <div className="text-lg font-bold text-theme-accent dark:text-theme-accent-dark">{
                 flightInfo.fuelOnBoard && totalFuelUsed > 0 && totalETE > 0 ?
                 Math.floor(Math.max(0, ((parseFloat(flightInfo.fuelOnBoard) - totalFuelUsed) / (totalFuelUsed / totalETE)) * 60)) : '---'
               } min</div>
             </div>
-            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-gray-600 border-gray-500' : 'bg-white border-gray-200'}`}>
+            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-theme-card-dark border-gray-500' : 'bg-theme-card border-gray-200'}`}>
               <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Average Ground Speed</div>
-              <div className="text-lg font-bold text-teal-600 dark:text-teal-400">{
+              <div className="text-lg font-bold text-theme-accent dark:text-theme-accent-dark">{
                 totalDistance > 0 && totalETE > 0 ? 
                 (totalDistance / (totalETE / 60)).toFixed(0) : '---'
               } kts</div>
             </div>
-            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-gray-600 border-gray-500' : 'bg-white border-gray-200'}`}>
+            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-theme-card-dark border-gray-500' : 'bg-theme-card border-gray-200'}`}>
               <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Fuel Burn Rate</div>
-              <div className="text-lg font-bold text-pink-600 dark:text-pink-400">{
+              <div className="text-lg font-bold text-theme-accent dark:text-theme-accent-dark">{
                 totalDistance > 0 && totalFuelUsed > 0 && totalETE > 0 ?
                 (totalFuelUsed / (totalDistance / (totalETE / 60))).toFixed(2) : '---'
               } gal/hr</div>
@@ -964,8 +958,8 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
           <h4 className="font-semibold mb-6 text-xl text-center">Flight Planning Instructions</h4>
 
           <div className="space-y-6">
-            <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-600' : 'bg-white'}`}>
-              <h5 className="font-semibold mb-3 text-lg text-blue-800 dark:text-white">1. Getting Started - Distance & Route Planning</h5>
+            <div className={`p-4 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'}`}>
+              <h5 className="font-semibold mb-3 text-lg text-theme-primary dark:text-theme-primary-dark">1. Getting Started - Distance & Route Planning</h5>
               <div className="space-y-2 text-sm">
                 <p><strong>Using Sectional Charts:</strong> Measure distance between airports using the scale at the bottom of the chart. Use a plotter or ruler for accuracy.</p>
                 <p><strong>Using ForeFlight:</strong> Enter departure and destination airports, then use the route planner to get accurate distances and suggested checkpoints.</p>
@@ -974,8 +968,8 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
               </div>
             </div>
 
-            <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-600' : 'bg-white'}`}>
-              <h5 className="font-semibold mb-3 text-lg text-green-800 dark:text-white">2. Filling Out the Table - Step by Step</h5>
+            <div className={`p-4 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'}`}>
+              <h5 className="font-semibold mb-3 text-lg text-theme-primary dark:text-theme-primary-dark">2. Filling Out the Table - Step by Step</h5>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <h6 className="font-medium mb-2">Basic Information:</h6>
@@ -996,8 +990,8 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
               </div>
             </div>
 
-            <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-600' : 'bg-white'}`}>
-              <h5 className="font-semibold mb-3 text-lg text-purple-800 dark:text-white">3. Navigation Calculations</h5>
+            <div className={`p-4 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'}`}>
+              <h5 className="font-semibold mb-3 text-lg text-theme-primary dark:text-theme-primary-dark">3. Navigation Calculations</h5>
               <div className="space-y-3 text-sm">
                 <div>
                   <h6 className="font-medium mb-1">True Course (TC):</h6>
@@ -1018,8 +1012,8 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
               </div>
             </div>
 
-            <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-600' : 'bg-white'}`}>
-              <h5 className="font-semibold mb-3 text-lg text-orange-800 dark:text-white">4. Using the CX-6 Flight Computer</h5>
+            <div className={`p-4 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'}`}>
+              <h5 className="font-semibold mb-3 text-lg text-theme-primary dark:text-theme-primary-dark">4. Using the CX-6 Flight Computer</h5>
               <div className="space-y-2 text-sm">
                 <p><strong>Wind Correction Angle (WCA):</strong> Use CX-6 to calculate wind correction from true course, wind direction/velocity, and TAS.</p>
                 <p><strong>True Heading:</strong> TC + WCA = True Heading</p>
@@ -1030,8 +1024,8 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
               </div>
             </div>
 
-            <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-600' : 'bg-white'}`}>
-              <h5 className="font-semibold mb-3 text-lg text-red-800 dark:text-white">5. Manual Calculations (Alternative Method)</h5>
+            <div className={`p-4 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'}`}>
+              <h5 className="font-semibold mb-3 text-lg text-theme-primary dark:text-theme-primary-dark">5. Manual Calculations (Alternative Method)</h5>
               <div className="space-y-2 text-sm">
                 <p><strong>E6-B Flight Computer Procedures</strong></p>
                 <p><strong>Wind Triangle Solution:</strong></p>
@@ -1076,8 +1070,8 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
               </div>
             </div>
 
-            <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-600' : 'bg-white'}`}>
-              <h5 className="font-semibold mb-3 text-lg text-teal-800 dark:text-white">6. VOR Navigation Setup</h5>
+            <div className={`p-4 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'}`}>
+              <h5 className="font-semibold mb-3 text-lg text-theme-primary dark:text-theme-primary-dark">6. VOR Navigation Setup</h5>
               <div className="space-y-2 text-sm">
                 <p><strong>VOR Frequency:</strong> From sectional chart or airport/facility directory</p>
                 <p><strong>VOR Radial:</strong> The radial FROM the VOR station to your position</p>
@@ -1086,8 +1080,8 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
               </div>
             </div>
 
-            <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-600' : 'bg-white'}`}>
-              <h5 className="font-semibold mb-3 text-lg text-indigo-800 dark:text-white">7. In-Flight Updates</h5>
+            <div className={`p-4 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'}`}>
+              <h5 className="font-semibold mb-3 text-lg text-theme-primary dark:text-theme-primary-dark">7. In-Flight Updates</h5>
               <div className="space-y-2 text-sm">
                 <p><strong>Actual Times:</strong> Update ACT, ATA, and ATE columns during flight</p>
                 <p><strong>Fuel Remaining:</strong> Track actual fuel burn vs. planned</p>
@@ -1096,8 +1090,8 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
               </div>
             </div>
 
-            <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-600' : 'bg-white'}`}>
-              <h5 className="font-semibold mb-3 text-lg text-gray-800 dark:text-white">8. Safety Considerations</h5>
+            <div className={`p-4 rounded-lg ${darkMode ? 'bg-theme-card-dark' : 'bg-theme-card'}`}>
+              <h5 className="font-semibold mb-3 text-lg text-theme-primary dark:text-theme-primary-dark">8. Safety Considerations</h5>
               <div className="space-y-2 text-sm">
                 <p><strong>Fuel Reserves:</strong> Always plan for VFR Day (45 min), VFR Night (45 min), or IFR (45 min) reserves</p>
                 <p><strong>Alternate Airports:</strong> Plan for weather contingencies</p>

@@ -163,3 +163,16 @@
 .dark .aviation-scope .bg-gray-200:hover {
   background-color: color-mix(in srgb, var(--ap-bg-panel-dark) 90%, var(--ap-bg-base-dark) 10%) !important;
 }
+
+/* Override theme classes to use aviation theme variables */
+.aviation-scope .bg-theme-card { background-color: var(--ap-bg-panel) !important; }
+.aviation-scope .bg-theme-bg { background-color: var(--ap-bg-base) !important; }
+.aviation-scope .bg-theme-accent { background-color: var(--ap-accent) !important; }
+.aviation-scope .text-theme-primary { color: var(--ap-primary) !important; }
+.aviation-scope .border-theme-accent { border-color: var(--ap-border) !important; }
+
+.dark .aviation-scope .bg-theme-card-dark { background-color: var(--ap-bg-panel-dark) !important; }
+.dark .aviation-scope .bg-theme-bg-dark { background-color: var(--ap-bg-base-dark) !important; }
+.dark .aviation-scope .bg-theme-accent-dark { background-color: var(--ap-accent-dark) !important; }
+.dark .aviation-scope .text-theme-primary-dark { color: var(--ap-primary-dark) !important; }
+.dark .aviation-scope .border-theme-accent-dark { border-color: var(--ap-border-dark) !important; }
