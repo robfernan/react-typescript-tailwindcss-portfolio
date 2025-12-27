@@ -501,89 +501,90 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
 
       {/* Checkpoints Table */}
       <div className="p-6">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold">Route Planning</h3>
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-xl font-bold text-blue-600 dark:text-blue-400">Route Planning</h3>
           <div className="space-x-2">
             <button
               onClick={addCheckpoint}
-              className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${
+              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 transform hover:scale-105 shadow-md hover:shadow-lg ${
                 darkMode 
                   ? 'bg-blue-600 hover:bg-blue-500 text-white' 
                   : 'bg-blue-600 hover:bg-blue-700 text-white'
               }`}
             >
-              <Plus className="w-4 h-4 inline mr-1" />
+              <Plus className="w-4 h-4 inline mr-2" />
               Add Checkpoint
             </button>
           </div>
         </div>
 
         <div className="overflow-x-auto w-full">
-          <table className="w-full border-collapse border border-gray-300 text-base min-w-[2800px]">
+          <table className="w-full border-collapse border border-gray-300 text-sm min-w-[2800px]">
             <thead>
-              <tr className={`${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium min-w-[100px]" rowSpan={2}>Checkpoint</th>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium" colSpan={2}>A Planned</th>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium" colSpan={2}>Predicted Wind</th>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium min-w-[80px]">TEMP</th>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium min-w-[80px]">Plan<br/>TAS</th>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium min-w-[80px]">WCA<br/>-L +R</th>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium min-w-[80px]">True<br/>HDG</th>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium min-w-[80px]">Var<br/>-E +W</th>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium min-w-[80px]">Mag<br/>HDG</th>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium min-w-[80px]">Dev<br/>+-</th>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium min-w-[80px]">Compass<br/>HDG</th>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium" colSpan={2}>Distance</th>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium min-w-[80px]">GS</th>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium" colSpan={2}>Time</th>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium" colSpan={2}>ETE/ATE</th>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium" colSpan={2}>ETA/ATA</th>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium" colSpan={2}>Fuel</th>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium" colSpan={3}>VOR</th>
-                <th className="border border-gray-300 p-4 text-center text-base font-medium min-w-[80px]">Actions</th>
+              <tr className={`${darkMode ? 'bg-gray-700' : 'bg-blue-50'}`}>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[120px]" rowSpan={2}>Checkpoint</th>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold" colSpan={2}>A Planned</th>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold" colSpan={2}>Predicted Wind</th>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">TEMP</th>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">Plan<br/>TAS</th>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">WCA<br/>-L +R</th>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">True<br/>HDG</th>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">Var<br/>-E +W</th>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">Mag<br/>HDG</th>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">Dev<br/>+-</th>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">Compass<br/>HDG</th>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold" colSpan={2}>Distance</th>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">GS</th>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold" colSpan={2}>Time</th>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold" colSpan={2}>ETE/ATE</th>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold" colSpan={2}>ETA/ATA</th>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold" colSpan={2}>Fuel</th>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold" colSpan={3}>VOR</th>
+                <th className="border border-gray-300 p-3 text-center text-sm font-semibold min-w-[80px]">Actions</th>
               </tr>
-              <tr className={`${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">TC</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">ALT</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">DIR</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">VEL</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">°C</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">kts</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">°</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">°</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">°</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">°</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">°</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">°</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">Leg</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">Rem</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">kts</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">EST</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">ACT</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">ETE</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">ATE</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">ETA</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">ATA</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">Used</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">Rem</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">FREQ</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">RADIAL</th>
-                <th className="border border-gray-300 p-3 text-center text-base min-w-[80px]">ID</th>
-                <th className="border border-gray-300 p-3 text-center text-base"></th>
+              <tr className={`${darkMode ? 'bg-gray-600' : 'bg-blue-100'}`}>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">TC</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">ALT</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">DIR</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">VEL</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">°C</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">kts</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">°</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">Leg</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">Rem</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">kts</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">EST</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">ACT</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">ETE</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">ATE</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">ETA</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">ATA</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">Used</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">Rem</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">FREQ</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">RADIAL</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium min-w-[80px]">ID</th>
+                <th className="border border-gray-300 p-2 text-center text-xs font-medium"></th>
               </tr>
             </thead>
             <tbody>
               {checkpoints.map((checkpoint, index) => (
-                <tr key={checkpoint.id} className={index % 2 === 0 ? 
+                <tr key={checkpoint.id} className={`hover:bg-blue-50 dark:hover:bg-gray-600 transition-colors ${
+                  index % 2 === 0 ? 
                   (darkMode ? 'bg-gray-800' : 'bg-white') : 
                   (darkMode ? 'bg-gray-750' : 'bg-gray-50')
-                }>
-                  <td className="border border-gray-300 p-4">
+                }`}>
+                  <td className="border border-gray-300 p-2">
                     <input
                       type="text"
                       value={checkpoint.name}
                       onChange={(e) => updateCheckpoint(checkpoint.id, 'name', e.target.value)}
-                      className={`w-full p-2 border-0 bg-transparent text-base font-medium ${
+                      className={`w-full p-2 border-0 bg-transparent text-sm font-semibold focus:bg-blue-50 dark:focus:bg-gray-700 rounded transition-colors ${
                         darkMode ? 'text-white' : 'text-gray-900'
                       }`}
                     />
@@ -904,44 +905,56 @@ const FlightPlanForm: React.FC<FlightPlanFormProps> = ({ darkMode }) => {
         </div>
 
         {/* Summary Section */}
-        <div className={`mt-6 p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
-          <h4 className="font-semibold mb-4 text-lg">Flight Summary</h4>
+        <div className={`mt-8 p-6 rounded-xl shadow-lg ${darkMode ? 'bg-gray-700 border border-gray-600' : 'bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200'}`}>
+          <h4 className="font-bold mb-6 text-xl text-blue-600 dark:text-blue-400">Flight Summary</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
-            <div className={`p-3 rounded ${darkMode ? 'bg-gray-600' : 'bg-white'}`}>
-              <span className="font-medium">Total Distance:</span> {totalDistance.toFixed(1)} nm
+            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-gray-600 border-gray-500' : 'bg-white border-gray-200'}`}>
+              <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Total Distance</div>
+              <div className="text-lg font-bold text-blue-600 dark:text-blue-400">{totalDistance.toFixed(1)} nm</div>
             </div>
-            <div className={`p-3 rounded ${darkMode ? 'bg-gray-600' : 'bg-white'}`}>
-              <span className="font-medium">Total Flight Time:</span> {Math.floor(totalETE / 60)}h {(totalETE % 60).toFixed(0)}m
+            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-gray-600 border-gray-500' : 'bg-white border-gray-200'}`}>
+              <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Total Flight Time</div>
+              <div className="text-lg font-bold text-green-600 dark:text-green-400">{Math.floor(totalETE / 60)}h {(totalETE % 60).toFixed(0)}m</div>
             </div>
-            <div className={`p-3 rounded ${darkMode ? 'bg-gray-600' : 'bg-white'}`}>
-              <span className="font-medium">Total Fuel Required:</span> {totalFuelUsed.toFixed(1)} gal
+            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-gray-600 border-gray-500' : 'bg-white border-gray-200'}`}>
+              <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Total Fuel Required</div>
+              <div className="text-lg font-bold text-orange-600 dark:text-orange-400">{totalFuelUsed.toFixed(1)} gal</div>
             </div>
-            <div className={`p-3 rounded ${darkMode ? 'bg-gray-600' : 'bg-white'}`}>
-              <span className="font-medium">Fuel on Board:</span> {flightInfo.fuelOnBoard || '---'} gal
+            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-gray-600 border-gray-500' : 'bg-white border-gray-200'}`}>
+              <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Fuel on Board</div>
+              <div className="text-lg font-bold text-purple-600 dark:text-purple-400">{flightInfo.fuelOnBoard || '---'} gal</div>
             </div>
-            <div className={`p-3 rounded ${darkMode ? 'bg-gray-600' : 'bg-white'}`}>
-              <span className="font-medium">Fuel Reserve:</span> {
-                flightInfo.fuelOnBoard ? 
-                Math.max(0, parseFloat(flightInfo.fuelOnBoard) - totalFuelUsed).toFixed(1) : '---'
-              } gal
+            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-gray-600 border-gray-500' : 'bg-white border-gray-200'}`}>
+              <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Fuel Reserve</div>
+              <div className={`text-lg font-bold ${
+                flightInfo.fuelOnBoard && (parseFloat(flightInfo.fuelOnBoard) - totalFuelUsed) < 10 
+                  ? 'text-red-600 dark:text-red-400' 
+                  : 'text-green-600 dark:text-green-400'
+              }`}>
+                {flightInfo.fuelOnBoard ? 
+                Math.max(0, parseFloat(flightInfo.fuelOnBoard) - totalFuelUsed).toFixed(1) : '---'} gal
+              </div>
             </div>
-            <div className={`p-3 rounded ${darkMode ? 'bg-gray-600' : 'bg-white'}`}>
-              <span className="font-medium">Reserve Time:</span> {
+            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-gray-600 border-gray-500' : 'bg-white border-gray-200'}`}>
+              <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Reserve Time</div>
+              <div className="text-lg font-bold text-indigo-600 dark:text-indigo-400">{
                 flightInfo.fuelOnBoard && totalFuelUsed > 0 && totalETE > 0 ?
                 Math.floor(Math.max(0, ((parseFloat(flightInfo.fuelOnBoard) - totalFuelUsed) / (totalFuelUsed / totalETE)) * 60)) : '---'
-              } min
+              } min</div>
             </div>
-            <div className={`p-3 rounded ${darkMode ? 'bg-gray-600' : 'bg-white'}`}>
-              <span className="font-medium">Average Ground Speed:</span> {
+            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-gray-600 border-gray-500' : 'bg-white border-gray-200'}`}>
+              <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Average Ground Speed</div>
+              <div className="text-lg font-bold text-teal-600 dark:text-teal-400">{
                 totalDistance > 0 && totalETE > 0 ? 
                 (totalDistance / (totalETE / 60)).toFixed(0) : '---'
-              } kts
+              } kts</div>
             </div>
-            <div className={`p-3 rounded ${darkMode ? 'bg-gray-600' : 'bg-white'}`}>
-              <span className="font-medium">Fuel Burn Rate:</span> {
+            <div className={`p-4 rounded-lg shadow-sm border ${darkMode ? 'bg-gray-600 border-gray-500' : 'bg-white border-gray-200'}`}>
+              <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Fuel Burn Rate</div>
+              <div className="text-lg font-bold text-pink-600 dark:text-pink-400">{
                 totalDistance > 0 && totalFuelUsed > 0 && totalETE > 0 ?
                 (totalFuelUsed / (totalDistance / (totalETE / 60))).toFixed(2) : '---'
-              } gal/hr
+              } gal/hr</div>
             </div>
           </div>
         </div>

@@ -31,7 +31,7 @@ function AviationProApp({ darkMode = false, toggleDarkMode }: AviationProAppProp
     <div className={`aviation-scope min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
       <header className="flex items-center justify-between px-4 py-2 border-b border-gray-300 dark:border-gray-700">
         <h1 className="text-2xl font-bold">AviationPro</h1>
-        <button onClick={localToggle} className="px-3 py-1 rounded bg-gray-200 dark:bg-gray-800">
+        <button onClick={localToggle} className="px-3 py-1 rounded bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
           {darkMode ? 'Light Mode' : 'Dark Mode'}
         </button>
       </header>
@@ -39,7 +39,11 @@ function AviationProApp({ darkMode = false, toggleDarkMode }: AviationProAppProp
         {tabs.map(tab => (
           <button
             key={tab.id}
-            className={`flex items-center px-3 py-1 rounded ${activeTab === tab.id ? 'bg-blue-500 text-white' : 'bg-gray-100 dark:bg-gray-800'}`}
+            className={`flex items-center px-3 py-1 rounded transition-colors ${
+              activeTab === tab.id 
+                ? 'bg-blue-500 text-white' 
+                : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
+            }`}
             onClick={() => setActiveTab(tab.id)}
           >
             <tab.icon className="w-4 h-4 mr-1" />
@@ -47,17 +51,16 @@ function AviationProApp({ darkMode = false, toggleDarkMode }: AviationProAppProp
           </button>
         ))}
       </nav>
-    <main className="p-4">
-  {activeTab === 'planner' && <FlightPlanForm darkMode={darkMode} />}
-  {activeTab === 'cx6' && <CX6Calculator darkMode={darkMode} />}
-  {activeTab === 'weather' && <WeatherCalculator darkMode={darkMode} />}
-  {activeTab === 'performance' && <WeightBalanceCalculator darkMode={darkMode} />}
-  {activeTab === 'navigation' && <NavigationTools darkMode={darkMode} />}
-  {activeTab === 'logs' && <FlightLogs darkMode={darkMode} />}
-    </main>
+      <main className="p-4">
+        {activeTab === 'planner' && <FlightPlanForm darkMode={darkMode} />}
+        {activeTab === 'cx6' && <CX6Calculator darkMode={darkMode} />}
+        {activeTab === 'weather' && <WeatherCalculator darkMode={darkMode} />}
+        {activeTab === 'performance' && <WeightBalanceCalculator darkMode={darkMode} />}
+        {activeTab === 'navigation' && <NavigationTools darkMode={darkMode} />}
+        {activeTab === 'logs' && <FlightLogs darkMode={darkMode} />}
+      </main>
     </div>
   );
 }
 
 export default AviationProApp;
-import React from 'react';
